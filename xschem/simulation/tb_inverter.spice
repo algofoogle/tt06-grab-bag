@@ -2,8 +2,11 @@
 **.subckt tb_inverter
 x1 VDD VSS A Y inverter
 Vvss VSS GND 0
-Vvdd VDD GND dc 1.8V pwl( 0ns 0V 2ns 0V 25ns 1.8V 75ns 1.8V 98ns 0V )
-Va A GND pulse(0V 1.8V 0ns 0.2ns 0.2ns 10ns 20ns)
+Vvdd VDD GND dc 1.8V pwl( 0ns 0V 2ns 0V 25ns 1.8V 175ns 1.8V 198ns 0V )
+Va A GND pulse( 0V 1.8V 0ns 0.5ns 0.5ns 20ns 40ns )
+R1 OUT Y 500 m=1
+C1 Y VSS 2.5p m=1
+C2 OUT VSS 2.5p m=1
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -14,7 +17,7 @@ Va A GND pulse(0V 1.8V 0ns 0.2ns 0.2ns 10ns 20ns)
 
 
 .control
-  tran 10ps 100ns
+  tran 10ps 200ns
   write tb_inverter.raw
 .endc
 

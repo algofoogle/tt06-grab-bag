@@ -1,0 +1,41 @@
+** sch_path: /home/anton/projects/tt06-grab-bag/xschem/tb_inverter.sch
+**.subckt tb_inverter
+x1 VDD VSS A Y inverter
+Vvss VSS GND 0
+Vvdd VDD GND dc 1.8V pwl( 0ns 0V 2ns 0V 25ns 1.8V 75ns 1.8V 98ns 0V )
+Va A GND pulse(0V 1.8V 0ns 0.2ns 0.2ns 10ns 20ns)
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.lib /home/anton/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+
+
+
+
+.control
+  tran 10ps 100ns
+  write tb_inverter.raw
+.endc
+
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  inverter.sym # of pins=4
+** sym_path: /home/anton/projects/tt06-grab-bag/xschem/inverter.sym
+** sch_path: /home/anton/projects/tt06-grab-bag/xschem/inverter.sch
+.subckt inverter VDD VSS A Y
+*.iopin VDD
+*.iopin VSS
+*.ipin A
+*.opin Y
+XM1 Y A VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Y A VSS VSS sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.GLOBAL GND
+.end

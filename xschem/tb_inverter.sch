@@ -13,22 +13,25 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=2e-07
+x1=1.9234052e-08
+x2=8.3421473e-08
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="a
+node="vdd
+a
 y
-vdd
 out"
-color="4 12 7 8"
+color="7 4 12 8"
 dataset=-1
 unitx=1
 logx=0
 logy=0
-}
+hilight_wave=1
+digital=0
+rainbow=0
+linewidth_mult=0.1}
 B 2 800 -840 1600 -440 {flags=graph
 y1=-3.7e-05
 y2=0.0017
@@ -37,8 +40,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=2e-07
+x1=1.9234052e-08
+x2=8.3421473e-08
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -50,6 +53,11 @@ unitx=1
 logx=0
 logy=0
 }
+T {TT_MODELS is set to use
+'tt_mm' (for Monte Carlo)
+instead of just 'tt'.
+The 'repeat 5' above
+makes use of this.} 130 -120 0 0 0.3 0.3 {}
 N 360 -60 360 -40 {
 lab=GND}
 N 360 -220 360 -200 {
@@ -91,7 +99,7 @@ only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
-.lib $::SKYWATER_MODELS/sky130.lib.spice tt
+.lib $::SKYWATER_MODELS/sky130.lib.spice tt_mm
 
 "
 spice_ignore=false}
@@ -123,15 +131,19 @@ C {devices/gnd.sym} 60 -500 0 0 {name=l3 lab=GND}
 C {devices/lab_pin.sym} 60 -600 0 1 {name=p5 sig_type=std_logic lab=A}
 C {devices/lab_pin.sym} 280 -260 0 0 {name=p6 sig_type=std_logic lab=A}
 C {devices/lab_pin.sym} 460 -260 3 1 {name=p7 sig_type=std_logic lab=Y}
-C {devices/simulator_commands_shown.sym} 20 -290 0 0 {name=COMMANDS
+C {devices/simulator_commands_shown.sym} 20 -400 0 0 {name=COMMANDS
 simulator=ngspice
 only_toplevel=false 
 value="
 .options savecurrents
 .control
-  save all
-  tran 10ps 200ns
-  write tb_inverter.raw
+  repeat 5
+    save all
+    tran 10ps 200ns
+    write tb_inverter.raw
+    set appendwrite
+    reset
+  end
 .endc
 "}
 C {devices/res.sym} 590 -260 1 0 {name=R1

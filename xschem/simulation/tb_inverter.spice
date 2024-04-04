@@ -12,7 +12,7 @@ Vmeas VDD net1 0
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
-.lib /home/anton/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.lib /home/anton/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.tech/ngspice/sky130.lib.spice tt_mm
 
 
 
@@ -20,9 +20,13 @@ Vmeas VDD net1 0
 
 .options savecurrents
 .control
-  save all
-  tran 10ps 200ns
-  write tb_inverter.raw
+  repeat 5
+    save all
+    tran 10ps 200ns
+    write tb_inverter.raw
+    set appendwrite
+    reset
+  end
 .endc
 
 

@@ -33,7 +33,7 @@ digital=0
 rainbow=0
 linewidth_mult=0.1}
 B 2 800 -840 1600 -440 {flags=graph
-y1=-3.7e-05
+y1=-2e-05
 y2=0.0017
 ypos1=0
 ypos2=2
@@ -46,18 +46,23 @@ divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node=i(vmeas)
-color=10
+node="i(vmeas)
+\\"i(va)*10; i(va) 10 *\\""
+color="10 4"
 dataset=-1
 unitx=1
 logx=0
 logy=0
 }
+P 4 5 500 -320 720 -320 720 -100 500 -100 500 -320 {dash=3}
 T {TT_MODELS is set to use
 'tt_mm' (for Monte Carlo)
 instead of just 'tt'.
 The 'repeat 5' above
 makes use of this.} 130 -120 0 0 0.3 0.3 {}
+T {Model of Tiny Tapeout
+analog pin parasitics
+(expected worst case).} 500 -380 0 0 0.3 0.3 {}
 N 360 -60 360 -40 {
 lab=GND}
 N 360 -220 360 -200 {

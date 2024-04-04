@@ -1,0 +1,7 @@
+** sch_path: /home/anton/projects/tt06-grab-bag/xschem/inverter.sch
+.subckt inverter VDD VSS A Y
+*.PININFO VDD:B VSS:B A:I Y:O
+XM1 Y A VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=8 nf=1 m=1
+XM2 Y A VSS VSS sky130_fd_pr__nfet_01v8 L=0.15 W=4 nf=1 m=1
+.ends
+.end

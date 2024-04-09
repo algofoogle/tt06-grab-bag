@@ -9,6 +9,12 @@ C1 Y VSS 2.5p m=1
 C2 OUT VSS 2.5p m=1
 Vmeas VDD net1 0
 .save i(vmeas)
+x2 net2 VSS A Y_parax inverter_parax
+R2 OUT_parax Y_parax 500 m=1
+C3 Y_parax VSS 2.5p m=1
+C4 OUT_parax VSS 2.5p m=1
+Vmeas1 VDD net2 0
+.save i(vmeas1)
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -48,5 +54,9 @@ XM2 Y A VSS VSS sky130_fd_pr__nfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 .ends
 
+
+* expanding   symbol:  inverter_parax.sym # of pins=4
+** sym_path: /home/anton/projects/tt06-grab-bag/xschem/inverter.sym
+.include /home/anton/projects/tt06-grab-bag/mag/inverter.sim.spice
 .GLOBAL GND
 .end

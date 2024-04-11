@@ -20,7 +20,7 @@ project:
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
-  ui[0]: ""
+  ui[0]: "inv_in"
   ui[1]: ""
   ui[2]: ""
   ui[3]: ""
@@ -30,7 +30,7 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: ""
+  uo[0]: "inv_out_d"
   uo[1]: ""
   uo[2]: ""
   uo[3]: ""
@@ -52,9 +52,12 @@ pinout:
   # Analog pins - you can add more if you use them, up to 6.
   # Keep only the "ua" pins you are actually using, and *delete* any unused "ua" pins.
   # The first pins is always ua[0], and the pin numbers must be sequential.
-  ua[0]: "unknown1"
-  ua[1]: "unknown2"
-  ua[2]: "unknown3"
+  ua[0]: "inv_out_a"
+  ua[1]: "a1"
+  ua[2]: "a2"
+  ua[3]: "a3"
+  ua[4]: "a4"
+  ua[5]: "a5"
 
 # Do not change!
 yaml_version: 6

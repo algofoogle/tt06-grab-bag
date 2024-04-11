@@ -9,12 +9,14 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-So far this is just a plain and bog-standard CMOS inverter.
+So far this is just a plain and bog-standard CMOS inverter... maybe a bit on the big side.
 
 
 ## How to test
 
-Can't test it yet because it doesn't have a layout or pins assigned.
+Provide a digital input on `ui_in[0]`.
+
+Expect to see the inverse output on `uo_out[0]` but also on `ua[0]`.
 
 
 ## External hardware

@@ -53,8 +53,11 @@ pinout:
   # Keep only the "ua" pins you are actually using, and *delete* any unused "ua" pins.
   # The first pins is always ua[0], and the pin numbers must be sequential.
   ua[0]: "inv_out_a"
-  #ua[1]: "unknown2"
-  #ua[2]: "unknown3"
+  ua[1]: "a1"
+  ua[2]: "a2"
+  ua[3]: "a3"
+  ua[4]: "a4"
+  ua[5]: "a5"
 
 # Do not change!
 yaml_version: 6

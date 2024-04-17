@@ -1,0 +1,21 @@
+** sch_path: /home/anton/projects/tt06-grab-bag/xschem/r2r.sch
+.subckt r2r aout d[7] d[6] d[5] d[4] d[3] d[2] d[1] d[0] GND VSUBS
+*.PININFO d[0]:I d[1]:I d[2]:I d[3]:I d[4]:I d[5]:I d[6]:I d[7]:I GND:B VSUBS:B aout:O
+XR1 d[0] net1 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR2 d[1] net2 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR3 d[2] net3 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR4 d[3] net4 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR5 d[4] net5 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR6 d[5] net6 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR7 d[6] net7 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR8 d[7] aout VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR9 GND net1 VSUBS sky130_fd_pr__res_high_po_0p69 L=19.55 mult=1 m=1
+XR10 net1 net2 VSUBS sky130_fd_pr__res_high_po_0p69 L=19.55 mult=1 m=1
+XR11 net2 net3 VSUBS sky130_fd_pr__res_high_po_0p69 L=19.55 mult=1 m=1
+XR12 net3 net4 VSUBS sky130_fd_pr__res_high_po_0p69 L=19.55 mult=1 m=1
+XR13 net4 net5 VSUBS sky130_fd_pr__res_high_po_0p69 L=19.55 mult=1 m=1
+XR14 net5 net6 VSUBS sky130_fd_pr__res_high_po_0p69 L=19.55 mult=1 m=1
+XR15 net6 net7 VSUBS sky130_fd_pr__res_high_po_0p69 L=19.55 mult=1 m=1
+XR16 net7 aout VSUBS sky130_fd_pr__res_high_po_0p69 L=19.55 mult=1 m=1
+.ends
+.end

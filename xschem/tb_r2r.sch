@@ -5,16 +5,16 @@ K {}
 V {}
 S {}
 E {}
-B 2 1130 -870 2670 -170 {flags=graph
-y1=-0.3461924
-y2=2.0472057
+B 2 1130 -880 2670 -180 {flags=graph
+y1=-0.29870434
+y2=2.0946938
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=5.0520318e-06
-x2=5.4175275e-06
+x1=-1.954048e-07
+x2=1.091943e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -26,6 +26,49 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
+}
+B 2 1120 -1610 2660 -910 {flags=graph
+y1=-0.00011966569
+y2=0.0001195407
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=-1.954048e-07
+x2=1.091943e-05
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+
+
+rainbow=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 N 400 -320 400 -300 {
 lab=GND}
@@ -111,8 +154,10 @@ simulator=ngspice
 only_toplevel=false 
 value="
 * .options filetype=ascii
+.options savecurrents
 .control
-  tran 0.05n 6u uic
+  save all
+  tran 0.1n 5.25u uic
   write tb_r2r.raw
 .endc
 .end

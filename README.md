@@ -2,9 +2,12 @@
 
 # Anton's TT06 grab bag
 
-This is just the beginning of an analog project, created from the [TT06 analog template repo](https://github.com/TinyTapeout/tt06-analog-template).
+This is a very simple analog project, created from the [TT06 analog template repo](https://github.com/TinyTapeout/tt06-analog-template).
 
-I am learning to make basic analog designs to submit to TT06, so I'm not sure what you'll find in here ultimately, but so far this is just a bog-standard CMOS inverter.
+I am learning to make basic analog designs to submit to TT06, so I'm not sure what you'll find in here ultimately, but so far this is just:
+
+*   A bog-standard CMOS inverter.
+*   A simple 8-bit R2R DAC.
 
 [Read the documentation for project](docs/info.md)
 

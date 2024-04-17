@@ -228,21 +228,21 @@ timestamp 1713376360
 transform 0 1 12137 -1 0 -5365
 box -235 -2537 235 2537
 << labels >>
-flabel metal1 -400 130 -200 330 0 FreeSans 256 0 0 0 {d\[0\]}
+flabel metal1 -400 130 -200 330 0 FreeSans 256 0 0 0 d0
 port 8 nsew
-flabel metal1 -400 -670 -200 -470 0 FreeSans 256 0 0 0 {d\[1\]}
+flabel metal1 -400 -670 -200 -470 0 FreeSans 256 0 0 0 d1
 port 7 nsew
-flabel metal1 -400 -1470 -200 -1270 0 FreeSans 256 0 0 0 {d\[2\]}
+flabel metal1 -400 -1470 -200 -1270 0 FreeSans 256 0 0 0 d2
 port 6 nsew
-flabel metal1 -400 -2270 -200 -2070 0 FreeSans 256 0 0 0 {d\[3\]}
+flabel metal1 -400 -2270 -200 -2070 0 FreeSans 256 0 0 0 d3
 port 5 nsew
-flabel metal1 -400 -3070 -200 -2870 0 FreeSans 256 0 0 0 {d\[4\]}
+flabel metal1 -400 -3070 -200 -2870 0 FreeSans 256 0 0 0 d4
 port 4 nsew
-flabel metal1 -400 -3870 -200 -3670 0 FreeSans 256 0 0 0 {d\[5\]}
+flabel metal1 -400 -3870 -200 -3670 0 FreeSans 256 0 0 0 d5
 port 3 nsew
-flabel metal1 -400 -4670 -200 -4470 0 FreeSans 256 0 0 0 {d\[6\]}
+flabel metal1 -400 -4670 -200 -4470 0 FreeSans 256 0 0 0 d6
 port 2 nsew
-flabel metal1 -400 -5470 -200 -5270 0 FreeSans 256 0 0 0 {d\[7\]}
+flabel metal1 -400 -5470 -200 -5270 0 FreeSans 256 0 0 0 d7
 port 1 nsew
 flabel metal1 -400 600 -200 800 0 FreeSans 256 0 0 0 GND
 port 9 nsew

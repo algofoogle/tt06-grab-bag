@@ -8,23 +8,23 @@ E {}
 T {2R's} 210 -810 0 0 0.4 0.4 {}
 T {R's} 420 -810 0 0 0.4 0.4 {}
 N 120 -140 220 -140 {
-lab=d[0]}
+lab=d0}
 N 140 -40 160 -40 {
 lab=VSUBS}
 N 120 -220 220 -220 {
-lab=d[1]}
+lab=d1}
 N 120 -300 220 -300 {
-lab=d[2]}
+lab=d2}
 N 120 -380 220 -380 {
-lab=d[3]}
+lab=d3}
 N 120 -460 220 -460 {
-lab=d[4]}
+lab=d4}
 N 120 -540 220 -540 {
-lab=d[5]}
+lab=d5}
 N 120 -620 220 -620 {
-lab=d[6]}
+lab=d6}
 N 120 -700 220 -700 {
-lab=d[7]}
+lab=d7}
 N 220 -200 440 -200 {
 lab=#net1}
 N 220 -280 440 -280 {
@@ -61,14 +61,14 @@ N 440 -200 440 -180 {
 lab=#net1}
 N 440 -120 440 -80 {
 lab=GND}
-C {devices/ipin.sym} 120 -140 0 0 {name=p1 lab=d[0]}
-C {devices/ipin.sym} 120 -220 0 0 {name=p2 lab=d[1]}
-C {devices/ipin.sym} 120 -300 0 0 {name=p3 lab=d[2]}
-C {devices/ipin.sym} 120 -380 0 0 {name=p4 lab=d[3]}
-C {devices/ipin.sym} 120 -460 0 0 {name=p5 lab=d[4]}
-C {devices/ipin.sym} 120 -540 0 0 {name=p6 lab=d[5]}
-C {devices/ipin.sym} 120 -620 0 0 {name=p7 lab=d[6]}
-C {devices/ipin.sym} 120 -700 0 0 {name=p8 lab=d[7]}
+C {devices/ipin.sym} 120 -140 0 0 {name=p1 lab=d0}
+C {devices/ipin.sym} 120 -220 0 0 {name=p2 lab=d1}
+C {devices/ipin.sym} 120 -300 0 0 {name=p3 lab=d2}
+C {devices/ipin.sym} 120 -380 0 0 {name=p4 lab=d3}
+C {devices/ipin.sym} 120 -460 0 0 {name=p5 lab=d4}
+C {devices/ipin.sym} 120 -540 0 0 {name=p6 lab=d5}
+C {devices/ipin.sym} 120 -620 0 0 {name=p7 lab=d6}
+C {devices/ipin.sym} 120 -700 0 0 {name=p8 lab=d7}
 C {devices/lab_pin.sym} 160 -40 2 0 {name=p10 sig_type=std_logic lab=VSUBS}
 C {devices/iopin.sym} 440 -80 2 0 {name=p11 lab=GND}
 C {devices/iopin.sym} 140 -40 2 0 {name=p9 lab=VSUBS}

@@ -1,15 +1,15 @@
 ** sch_path: /home/anton/projects/tt06-grab-bag/xschem/tb_r2r.sch
 **.subckt tb_r2r
-x1 a_int d[7] d[6] d[5] d[4] d[3] d[2] d[1] d[0] GND GND r2r
+x1 a_int d7 d6 d5 d4 d3 d2 d1 d0 GND GND r2r
 x2 out a_int GND tt06_analog_load
-V1 d[0] GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 20ns 40ns)
-V2 d[1] GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 40ns 80ns)
-V3 d[2] GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 80ns 160ns)
-V4 d[3] GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 160ns 320ns)
-V5 d[4] GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 320ns 640ns)
-V6 d[5] GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 640ns 1280ns)
-V7 d[6] GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 1280ns 2560ns)
-V8 d[7] GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 2560ns 5120ns)
+V1 d0 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 20ns 40ns)
+V2 d1 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 40ns 80ns)
+V3 d2 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 80ns 160ns)
+V4 d3 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 160ns 320ns)
+V5 d4 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 320ns 640ns)
+V6 d5 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 640ns 1280ns)
+V7 d6 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 1280ns 2560ns)
+V8 d7 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 2560ns 5120ns)
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -36,26 +36,26 @@ V8 d[7] GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 2560ns 5120ns)
 * expanding   symbol:  r2r.sym # of pins=11
 ** sym_path: /home/anton/projects/tt06-grab-bag/xschem/r2r.sym
 ** sch_path: /home/anton/projects/tt06-grab-bag/xschem/r2r.sch
-.subckt r2r aout d[7] d[6] d[5] d[4] d[3] d[2] d[1] d[0] GND VSUBS
-*.ipin d[0]
-*.ipin d[1]
-*.ipin d[2]
-*.ipin d[3]
-*.ipin d[4]
-*.ipin d[5]
-*.ipin d[6]
-*.ipin d[7]
+.subckt r2r aout d7 d6 d5 d4 d3 d2 d1 d0 GND VSUBS
+*.ipin d0
+*.ipin d1
+*.ipin d2
+*.ipin d3
+*.ipin d4
+*.ipin d5
+*.ipin d6
+*.ipin d7
 *.iopin GND
 *.iopin VSUBS
 *.opin aout
-XR1 d[0] net1 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
-XR2 d[1] net2 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
-XR3 d[2] net3 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
-XR4 d[3] net4 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
-XR5 d[4] net5 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
-XR6 d[5] net6 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
-XR7 d[6] net7 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
-XR8 d[7] aout VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR1 d0 net1 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR2 d1 net2 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR3 d2 net3 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR4 d3 net4 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR5 d4 net5 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR6 d5 net6 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR7 d6 net7 VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
+XR8 d7 aout VSUBS sky130_fd_pr__res_high_po_0p69 L=39.9 mult=1 m=1
 XR9 GND net1 VSUBS sky130_fd_pr__res_high_po_0p69 L=19.55 mult=1 m=1
 XR10 net1 net2 VSUBS sky130_fd_pr__res_high_po_0p69 L=19.55 mult=1 m=1
 XR11 net2 net3 VSUBS sky130_fd_pr__res_high_po_0p69 L=19.55 mult=1 m=1

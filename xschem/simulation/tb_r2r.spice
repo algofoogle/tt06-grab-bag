@@ -10,6 +10,8 @@ V5 d4 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 320ns 640ns)
 V6 d5 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 640ns 1280ns)
 V7 d6 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 1280ns 2560ns)
 V8 d7 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 2560ns 5120ns)
+x3 a_int_parax d7 d6 d5 d4 d3 d2 d1 d0 GND GND r2r_parax
+x4 out_parax a_int_parax GND tt06_analog_load
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -79,5 +81,9 @@ C1 a_int GND 2.5p m=1
 C2 a_ext GND 2.5p m=1
 .ends
 
+
+* expanding   symbol:  r2r_parax.sym # of pins=11
+** sym_path: /home/anton/projects/tt06-grab-bag/xschem/r2r.sym
+.include /home/anton/projects/tt06-grab-bag/mag/r2r.sim.spice
 .GLOBAL GND
 .end

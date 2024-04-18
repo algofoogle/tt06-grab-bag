@@ -1,0 +1,6 @@
+** sch_path: /home/anton/projects/tt06-grab-bag/xschem/res.sch
+.subckt res rin VSUBS rout
+*.PININFO rin:I rout:O VSUBS:B
+XR1 rout rin VSUBS sky130_fd_pr__res_high_po_0p69 L=4.16 mult=1 m=1
+.ends
+.end

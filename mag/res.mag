@@ -1,0 +1,33 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1713446382
+<< viali >>
+rect -40 1480 40 1640
+rect 320 1480 400 1640
+<< metal1 >>
+rect 60 2100 1460 2300
+rect -100 1640 1060 1660
+rect -100 1480 -40 1640
+rect 40 1480 320 1640
+rect 400 1480 1060 1640
+rect -100 1460 1060 1480
+rect 60 820 700 1020
+rect 500 200 700 820
+rect 0 0 700 200
+rect 860 -200 1060 1460
+rect 0 -400 1060 -200
+rect 1260 -600 1460 2100
+rect 0 -800 1460 -600
+use sky130_fd_pr__res_high_po_0p69_T36FNH  XR1
+timestamp 1713446382
+transform 1 0 182 0 1 1545
+box -235 -998 235 998
+<< labels >>
+flabel metal1 0 0 200 200 0 FreeSans 256 0 0 0 rin
+port 0 nsew
+flabel metal1 0 -400 200 -200 0 FreeSans 256 0 0 0 VSUBS
+port 1 nsew
+flabel metal1 0 -800 200 -600 0 FreeSans 256 0 0 0 rout
+port 2 nsew
+<< end >>

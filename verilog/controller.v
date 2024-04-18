@@ -14,7 +14,8 @@ module controller(
   input wire [7:0] ui_in,
   output wire hsync, vsync,   // Polarity determined by vga_sync module per vga_timing_mode.
   output wire hblank, vblank, // High during blanking.
-  output [7:0] r, g, b        // Primarily goes to DAC.
+  output [7:0] r, g, b,       // Primarily goes to DAC.
+  output r7,g7,b7, r6,g6,b6   // Extra convenience outputs to wire up to digital outs on the north side of the macro.
 );
 
   localparam MODE_PASS = 0;
@@ -22,8 +23,12 @@ module controller(
   localparam MODE_BARS = 2;
   localparam MODE_XORS = 3;
 
+  assign {r7,r6, g7,g6, b7,b6} = {r[7:6], g[7:6], b[7:6]};
+
   wire [9:0] h, v;
   wire vmax, visible; // Used to detect end of frame.
+
+  wire reset = ~rst_n;
 
   // VGA sync generator:
   vga_sync vga_sync(
@@ -40,11 +45,11 @@ module controller(
     .o_visible(visible)
   );
 
-  // Make async reset synchronous:
-  reg reset;
-  always @(posedge clk or posedge n_rst) begin
-    reset <= ~n_rst;
-  end
+  // // Make async reset synchronous:
+  // reg reset;
+  // always @(posedge clk or posedge rst_n) begin
+  //   reset <= ~rst_n;
+  // end
 
   // Select mode and other parameters at reset:
   reg [7:0] mode_params;

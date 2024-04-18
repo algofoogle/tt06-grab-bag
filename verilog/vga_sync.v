@@ -74,7 +74,8 @@ module vga_sync #(
   output wire         o_hmax,
   output wire         o_vmax,
   output wire         o_vblank, // High during vertical blanking.
-  output wire         o_hblank  // High during horizontal blanking.
+  output wire         o_hblank, // High during horizontal blanking.
+  output wire         o_visible
 );
 
   // HSYNC and VSYNC:
@@ -99,7 +100,7 @@ module vga_sync #(
   assign o_vmax   = (mode==0) ? (vpos == M0_V_MAX)  : (vpos == M1_V_MAX);
   assign o_hblank = (mode==0) ? (hpos >= M0_H_VIEW) : (hpos >= M1_H_VIEW);
   assign o_vblank = (mode==0) ? (vpos >= M0_V_VIEW) : (vpos >= M1_V_VIEW);
-//   assign o_visible = (~o_hblank) & (~o_vblank);
+  assign o_visible = (~o_hblank) & (~o_vblank);
 
   // Horizontal tracing:
   always @(posedge clk) begin

@@ -11,4 +11,5 @@ test/results.xml
 test/gate_level_netlist.v
 *~
 .*.swp
+JUNK
 

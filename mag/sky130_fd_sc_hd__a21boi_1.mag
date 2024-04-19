@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1713537803
+timestamp 1713544590
 << nwell >>
 rect -38 261 590 582
 << pwell >>
@@ -311,8 +311,8 @@ port 5 nsew
 rlabel comment s 0 0 0 0 4 a21boi_1
 << properties >>
 string FIXED_BBOX 0 0 552 544
-string GDS_END 325742
-string GDS_FILE /home/anton/projects/tt06-grab-bag/gds/tt_um_algofoogle_tt06_grab_bag.gds
-string GDS_START 319506
+string GDS_END 228138
+string GDS_FILE controller.gds
+string GDS_START 221902
 string path 0.000 0.000 2.760 0.000 
 << end >>

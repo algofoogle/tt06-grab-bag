@@ -1,5 +1,79 @@
 # Controller
 
+## Pinouts
+
+### `ui_in`
+
+*   **DONE:** See detailed info below about reset state
+
+### `uo_out`
+
+These match the Tiny VGA PMOD - See: https://github.com/algofoogle/tt05-vga-spi-rom/blob/9208ed836d03bb5593d383a55a8ddcab464ed9d2/src/tt05_top.v#L13-L23
+
+0.  **DONE**: `red[7]`
+1.  **DONE**: `green[7]`
+2.  **DONE**: `blue[7]`
+3.  **DONE**: `vsync`
+4.  **DONE**: `red[6]`
+5.  **DONE**: `green[6]`
+6.  **DONE**: `blue[6]`
+7.  **DONE**: `hsync`
+
+### `ua`
+
+0.  **DONE:** `red`
+1.  **DONE:** `green`
+2.  **DONE:** `blue`
+3.  **DONE (nil):** (none)
+4.  **DONE (nil):** (none)
+5.  **DONE**: `Y` (inverter output)
+
+### bidir
+
+0.  **DONE:** OUT: vblank
+1.  **DONE:** OUT: hblank
+2.  **DONE:** OUT: `Y` (copy of inverter output)
+3.  **DONE (nil):** (IN: unused)
+4.  **DONE (nil):** (IN: unused)
+5.  **DONE (nil):** (IN: unused)
+6.  **DONE (nil):** (IN: unused)
+7.  **DONE:** IN: `A` (inverter input)
+
+`uio_oe` ties:
+
+0.  **DONE:** *VPWR*
+1.  **DONE:** *VPWR*
+2.  **DONE:** *VPWR*
+3.  **DONE:** VGND
+4.  **DONE:** VGND
+5.  **DONE:** VGND
+6.  **DONE:** VGND
+7.  **DONE:** *VPWR*
+
+`uio_out` ties:
+
+3.  **DONE:** VGND
+4.  **DONE:** VGND
+5.  **DONE:** VGND
+6.  **DONE:** VGND
+7.  **DONE:** VGND
+
+### Power
+
+*   Controller:
+    *   VPWR
+    *   VGND
+*   DACs:
+    *   VGND
+    *   VSUBS
+*   Inverter:
+    *   VPWR (VDD)
+    *   VGND (VSS)
+
+
+
+## Info
+
 Pin arrangement:
 
 *   North:
@@ -10,20 +84,6 @@ Pin arrangement:
 
 
 This is part of an intended mixed-signal design. Not properly implemented yet.
-
-These are my loose notes:
-
-`uo_out`: These match the Tiny VGA PMOD - See: https://github.com/algofoogle/tt05-vga-spi-rom/blob/9208ed836d03bb5593d383a55a8ddcab464ed9d2/src/tt05_top.v#L13-L23
-
-0.  `red[7]`
-1.  `green[7]`
-2.  `blue[7]`
-3.  `vsync`
-4.  `red[6]`
-5.  `green[6]`
-6.  `blue[6]`
-7.  `hsync`
-
 
 
 

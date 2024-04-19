@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1713535911
+timestamp 1713545957
 << metal1 >>
 rect 6494 42746 6626 42752
 rect 6494 29886 6626 42614
@@ -1066,6 +1066,10 @@ rect 18064 0 18184 600
 rect 22480 0 22600 654
 rect 26896 0 27016 772
 rect 31312 0 31432 846
+use controller  controller_0
+timestamp 1713545776
+transform 1 0 6668 0 1 27738
+box 14 0 24000 16000
 use inverter  inverter_0
 timestamp 1712241802
 transform 1 0 5390 0 1 1613

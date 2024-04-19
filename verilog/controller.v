@@ -26,7 +26,7 @@ module controller(
   assign {r7,r6, g7,g6, b7,b6} = {r[7:6], g[7:6], b[7:6]};
 
   wire [9:0] h, v;
-  wire vmax, visible; // Used to detect end of frame.
+  wire hmax, vmax, visible; // Used to detect end of frame.
 
   wire reset = ~rst_n;
 
@@ -41,6 +41,7 @@ module controller(
     .o_vblank (vblank),
     .o_hpos   (h),
     .o_vpos   (v),
+    .o_hmax   (hmax),
     .o_vmax   (vmax),
     .o_visible(visible)
   );

@@ -1,5 +1,14 @@
 # Controller
 
+Pin arrangement:
+
+*   North:
+    *   TT pin pitch is 3.68um
+*   South:
+    *   DAC pin pitch is 4um
+    *   Insert dummy pins between channels
+
+
 This is part of an intended mixed-signal design. Not properly implemented yet.
 
 These are my loose notes:
@@ -14,6 +23,8 @@ These are my loose notes:
 5.  `green[6]`
 6.  `blue[6]`
 7.  `hsync`
+
+
 
 
 ```

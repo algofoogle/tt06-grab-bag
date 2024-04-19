@@ -82,7 +82,7 @@ module vga_sync #(
   // These are the internal POSITIVE polarity sync signals.
   reg hsync, vsync;
   // Mode 0 and 1 both use negative polarity HSYNC:
-  assign o_hsync = hsync;
+  assign o_hsync = ~hsync;
   // Mode 0 VSYNC is neg polarity. For Mode 1 it is pos:
   assign o_vsync = (mode==0) ? ~vsync : vsync;
   

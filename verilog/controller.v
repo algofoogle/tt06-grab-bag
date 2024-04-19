@@ -77,7 +77,7 @@ module controller(
   always @(posedge clk) begin
     if (reset)
       rampc <= 0;
-    else if (vmax)
+    else if (vmax && hmax)
       rampc <= rampc + 1;
   end
 

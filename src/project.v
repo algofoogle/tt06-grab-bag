@@ -16,14 +16,17 @@ module tt_um_algofoogle_tt06_grab_bag(
     input  wire       rst_n     // reset_n - low to reset
 );
 
-    wire [7:0] r, g, b;
-    wire r7,g7,b7, r6,g6,b6;
+    wire [7:0] r;
+    wire [7:0] g;
+    wire [7:0] b;
+    // wire r7,g7,b7, r6,g6,b6;
 
-    controller controller(
+    controller controller_0(
         .VPWR   (VPWR),
         .VGND   (VGND),
         .clk    (clk),
         .rst_n  (rst_n),
+        .ui_in  (ui_in),
         .vblank (uio_out[0]),
         .hblank (uio_out[1]),
         .r      (r),
@@ -39,7 +42,7 @@ module tt_um_algofoogle_tt06_grab_bag(
         .hsync  (uo_out[7])
     );
 
-    r2r dac_red(
+    r2r r2r_red(
         .d0     (r[0]),
         .d1     (r[1]),
         .d2     (r[2]),
@@ -50,10 +53,10 @@ module tt_um_algofoogle_tt06_grab_bag(
         .d7     (r[7]),
         .aout   (ua[0]),
         .GND    (VGND),
-        .VSUB   (VGND)
+        .VSUBS  (VGND)
     );
 
-    r2r dac_green(
+    r2r r2r_green(
         .d0     (g[0]),
         .d1     (g[1]),
         .d2     (g[2]),
@@ -64,10 +67,10 @@ module tt_um_algofoogle_tt06_grab_bag(
         .d7     (g[7]),
         .aout   (ua[1]),
         .GND    (VGND),
-        .VSUB   (VGND)
+        .VSUBS  (VGND)
     );
 
-    r2r dac_blue(
+    r2r r2r_blue(
         .d0     (b[0]),
         .d1     (b[1]),
         .d2     (b[2]),
@@ -78,12 +81,12 @@ module tt_um_algofoogle_tt06_grab_bag(
         .d7     (b[7]),
         .aout   (ua[2]),
         .GND    (VGND),
-        .VSUB   (VGND)
+        .VSUBS  (VGND)
     );
 
     wire Y; // Inverter output -- goes to multiple places.
     assign uio_out[2] = Y;
-    assign ua[5] = Y;
+    assign ua[3] = Y;
 
     inverter inverter(
         .VDD    (VPWR),
@@ -92,36 +95,27 @@ module tt_um_algofoogle_tt06_grab_bag(
         .Y      (Y)
     );
 
+    // Configure uio directions:
+    assign uio_oe[0] = VPWR;    // Output: vblank
+    assign uio_oe[1] = VPWR;    // Output: hblank
+    assign uio_oe[2] = VPWR;    // Output: Y (inverter output)
+    assign uio_oe[3] = VGND;    // (unused)
+    assign uio_oe[4] = VGND;    // (unused)
+    assign uio_oe[5] = VGND;    // (unused)
+    assign uio_oe[6] = VGND;    // (unused)
+    assign uio_oe[7] = VGND;    // Input: A (inverter input)
+    
     // Tie other digital outputs to VGND, so they don't float:
 
-    //assign uo_out [7:1] = {7{VGND}};
-    // assign uo_out[1] = VGND;
-    // assign uo_out[2] = VGND;
-    // assign uo_out[3] = VGND;
-    // assign uo_out[4] = VGND;
-    // assign uo_out[5] = VGND;
-    // assign uo_out[6] = VGND;
-    // assign uo_out[7] = VGND;
-
     //assign uio_out[7:0] = {8{VGND}};
-    // assign uio_out[0] = VGND;
-    // assign uio_out[1] = VGND;
-    // assign uio_out[2] = VGND;
+    // assign uio_out[0] = VGND;    //NOTE: Outputs used above.
+    // assign uio_out[1] = VGND;    //NOTE: Outputs used above.
+    // assign uio_out[2] = VGND;    //NOTE: Outputs used above.
     assign uio_out[3] = VGND;
     assign uio_out[4] = VGND;
     assign uio_out[5] = VGND;
     assign uio_out[6] = VGND;
     assign uio_out[7] = VGND;
 
-    //assign uio_oe [7:0] = {8{VGND}};
-    assign uio_oe[0] = VPWR;    // Output: vblank
-    assign uio_oe[1] = VPWR;    // Output: hblank
-    assign uio_oe[2] = VPWR;    // Output: Y (inverter output)
-    assign uio_oe[3] = VGND;
-    assign uio_oe[4] = VGND;
-    assign uio_oe[5] = VGND;
-    assign uio_oe[6] = VGND;
-    assign uio_oe[7] = VGND;    // Input: A (inverter input)
-    
 endmodule
 

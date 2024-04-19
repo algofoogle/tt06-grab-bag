@@ -61,8 +61,8 @@ These match the Tiny VGA PMOD - See: https://github.com/algofoogle/tt05-vga-spi-
 ### Power
 
 *   Controller:
-    *   VPWR
-    *   VGND
+    *   **DONE:** VPWR
+    *   **DONE:** VGND
 *   DACs:
     *   **DONE:** VGND
     *   **DONE:** VSUBS

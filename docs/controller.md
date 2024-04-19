@@ -64,11 +64,11 @@ These match the Tiny VGA PMOD - See: https://github.com/algofoogle/tt05-vga-spi-
     *   VPWR
     *   VGND
 *   DACs:
-    *   VGND
-    *   VSUBS
+    *   **DONE:** VGND
+    *   **DONE:** VSUBS
 *   Inverter:
-    *   VPWR (VDD)
-    *   VGND (VSS)
+    *   **DONE:** VPWR (VDD)
+    *   **DONE:** VGND (VSS)
 
 
 

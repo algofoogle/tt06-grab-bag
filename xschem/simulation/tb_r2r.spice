@@ -1,7 +1,7 @@
 ** sch_path: /home/anton/projects/tt06-grab-bag/xschem/tb_r2r.sch
 **.subckt tb_r2r
 x1 a_int d7 d6 d5 d4 d3 d2 d1 d0 GND GND r2r
-x2 out a_int GND tt06_analog_load
+x2 out net1 GND tt06_analog_load
 V1 d0 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 20ns 40ns)
 V2 d1 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 40ns 80ns)
 V3 d2 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 80ns 160ns)
@@ -12,6 +12,13 @@ V7 d6 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 1280ns 2560ns)
 V8 d7 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 2560ns 5120ns)
 x3 a_int_parax d7 d6 d5 d4 d3 d2 d1 d0 GND GND r2r_parax
 x4 out_parax a_int_parax GND tt06_analog_load
+V10 VCC GND 1.8
+R1 net1 GND 100k m=1
+XM1 VCC b_int net1 net1 sky130_fd_pr__nfet_01v8 L=0.15 W=40 nf=8 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+R2 b_int a_int 150k m=1
+R3 VCC b_int 200k m=1
+R4 out GND 200k m=1
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -25,8 +32,9 @@ x4 out_parax a_int_parax GND tt06_analog_load
 .options savecurrents
 .control
   save all
-  tran 0.1n 5.25u uic
+  tran 2n 5.5u uic
   write tb_r2r.raw
+  quit
 .endc
 .end
 

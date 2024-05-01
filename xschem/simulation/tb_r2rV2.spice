@@ -1,12 +1,12 @@
-** sch_path: /home/anton/projects/tt06-grab-bag/xschem/tb_r2r.sch
-**.subckt tb_r2r
+** sch_path: /home/anton/projects/tt06-grab-bag/xschem/tb_r2rV2.sch
+**.subckt tb_r2rV2
 x1 a_int d7 d6 d5 d4 d3 d2 d1 d0 GND GND r2r
 x2 out c_int GND tt06_analog_load
 V1 d0 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 20ns 40ns)
 V2 d1 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 40ns 80ns)
-V3 d2 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 80ns 160ns)
-V4 d3 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 160ns 320ns)
-V5 d6 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 320ns 640ns)
+V3 d6 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 80ns 160ns)
+V4 d2 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 160ns 320ns)
+V5 d3 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 320ns 640ns)
 V6 d4 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 640ns 1280ns)
 V7 d5 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 1280ns 2560ns)
 V8 d7 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 2560ns 5120ns)
@@ -18,11 +18,11 @@ V9 net1 GND pwl(0ns,0.15v 5ns,0.15v 3us,0.85v 3.002us,0.15v 3.15us,0.15v 3.152us
 R5 b_int a_int 250k m=1
 V11 NBIAS GND 1.1
 R1 a_int VCC 50k m=1
-R2 GND b_int 250k m=1
-x5 VCC net3 net2 b_int c_int GND j_opamp
-I0 net3 GND 80u
-R3 GND net2 150k m=1
-R6 net2 c_int 100k m=1
+R2 GND b_int 400k m=1
+x5jo VCC net3 net2 b_int c_int GND j_opamp
+I0 net3 GND 150u
+R3 GND net2 300k m=1
+R6 net2 c_int 50k m=1
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -37,7 +37,8 @@ R6 net2 c_int 100k m=1
 .control
   save all
   tran 2n 7u uic
-  write tb_r2r.raw
+  *set filetype=ascii
+  write tb_r2rV2.raw
   quit
 .endc
 .end
@@ -114,11 +115,11 @@ XM4 voe1 vbn vss vss sky130_fd_pr__nfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W 
 + nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM5 vp iref vdd vdd sky130_fd_pr__pfet_01v8 L=0.75 W=5 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
 + nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM7 vout iref vdd vdd sky130_fd_pr__pfet_01v8 L=0.6 W=12 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
+XM7 vout iref vdd vdd sky130_fd_pr__pfet_01v8 L=0.6 W=16 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
 + nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM8 iref iref vdd vdd sky130_fd_pr__pfet_01v8 L=0.75 W=5 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
 + nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM9 net1 vdd voe1 vss sky130_fd_pr__nfet_01v8 L=0.6 W=20 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
+XM9 net1 vdd voe1 vss sky130_fd_pr__nfet_01v8 L=0.6 W=10 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
 + nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XC1 net1 vout sky130_fd_pr__cap_mim_m3_1 W=28 L=20 MF=1 m=1
 XM6 vout voe1 vss vss sky130_fd_pr__nfet_01v8 L=0.6 W=10 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'

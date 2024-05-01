@@ -13,32 +13,32 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=4.4890716e-06
-x2=5.9369906e-06
+x1=5e-12
+x2=7e-06
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="a_int
-b_int
+node="d1
+a_int
 c_int
 out"
-color="5 4 6 10"
+color="5 21 11 6"
 dataset=-1
 unitx=1
 logx=0
 logy=0
 }
 B 2 1490 -1610 3030 -910 {flags=graph
-y1=-1.7032129
-y2=2.3661947
+y1=0
+y2=0.0015
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=4.4890716e-06
-x2=5.9369906e-06
+x1=5e-12
+x2=7e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -73,13 +73,39 @@ rainbow=1
 
 
 
-color="8 4 18 7 12 11"
-node="i(@r1[i])
-i(@r5[i])
-i(@m.x5.xm5.msky130_fd_pr__pfet_01v8[id])
-m.x5.xm5.msky130_fd_pr__pfet_01v8#body
-m.x5.xm5.msky130_fd_pr__pfet_01v8#dbody
-m.x5.xm5.msky130_fd_pr__pfet_01v8#sbody"}
+
+
+color="8 8 8 8 8 8 12 10 11 16 7 7 7 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17"
+node="i(@m.x5jo.xm9.msky130_fd_pr__nfet_01v8[is])
+i(@m.x5jo.xm9.msky130_fd_pr__nfet_01v8[ig])
+i(@m.x5jo.xm9.msky130_fd_pr__nfet_01v8[id])
+i(@m.x5jo.xm9.msky130_fd_pr__nfet_01v8[ib])
+i(@m.x5jo.xm8.msky130_fd_pr__pfet_01v8[is])
+i(@m.x5jo.xm8.msky130_fd_pr__pfet_01v8[ig])
+i(@m.x5jo.xm8.msky130_fd_pr__pfet_01v8[id])
+i(@m.x5jo.xm7.msky130_fd_pr__pfet_01v8[id])
+i(@m.x5jo.xm6.msky130_fd_pr__nfet_01v8[id])
+i(@m.x5jo.xm6.msky130_fd_pr__nfet_01v8[ib])
+i(@m.x5jo.xm5.msky130_fd_pr__pfet_01v8[is])
+i(@m.x5jo.xm5.msky130_fd_pr__pfet_01v8[ig])
+i(@m.x5jo.xm5.msky130_fd_pr__pfet_01v8[id])
+i(@m.x5jo.xm5.msky130_fd_pr__pfet_01v8[ib])
+i(@m.x5jo.xm4.msky130_fd_pr__nfet_01v8[is])
+i(@m.x5jo.xm4.msky130_fd_pr__nfet_01v8[ig])
+i(@m.x5jo.xm4.msky130_fd_pr__nfet_01v8[id])
+i(@m.x5jo.xm4.msky130_fd_pr__nfet_01v8[ib])
+i(@m.x5jo.xm3.msky130_fd_pr__nfet_01v8[is])
+i(@m.x5jo.xm3.msky130_fd_pr__nfet_01v8[ig])
+i(@m.x5jo.xm3.msky130_fd_pr__nfet_01v8[id])
+i(@m.x5jo.xm3.msky130_fd_pr__nfet_01v8[ib])
+i(@m.x5jo.xm2.msky130_fd_pr__pfet_01v8[is])
+i(@m.x5jo.xm2.msky130_fd_pr__pfet_01v8[ig])
+i(@m.x5jo.xm2.msky130_fd_pr__pfet_01v8[id])
+i(@m.x5jo.xm2.msky130_fd_pr__pfet_01v8[ib])
+i(@m.x5jo.xm1.msky130_fd_pr__pfet_01v8[is])
+i(@m.x5jo.xm1.msky130_fd_pr__pfet_01v8[ig])
+i(@m.x5jo.xm1.msky130_fd_pr__pfet_01v8[id])
+i(@m.x5jo.xm1.msky130_fd_pr__pfet_01v8[ib])"}
 N 240 -320 240 -300 {
 lab=GND}
 N 240 -300 240 -280 {
@@ -91,11 +117,11 @@ lab=d0}
 N 40 -1420 80 -1420 {
 lab=d1}
 N 40 -1320 80 -1320 {
-lab=d2}
-N 40 -1220 80 -1220 {
-lab=d3}
-N 340 -1520 380 -1520 {
 lab=d6}
+N 40 -1220 80 -1220 {
+lab=d2}
+N 340 -1520 380 -1520 {
+lab=d3}
 N 340 -1420 380 -1420 {
 lab=d4}
 N 340 -1320 380 -1320 {
@@ -202,13 +228,13 @@ C {devices/vsource.sym} 40 -1390 0 0 {name=V2 value="pulse(0V 1.8V 0ns 0.5ns 0.5
 C {devices/lab_pin.sym} 80 -1420 2 0 {name=p3 sig_type=std_logic lab=d1}
 C {devices/gnd.sym} 40 -1360 0 0 {name=l4 lab=GND}
 C {devices/vsource.sym} 40 -1290 0 0 {name=V3 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 80ns 160ns)" savecurrent=false}
-C {devices/lab_pin.sym} 80 -1320 2 0 {name=p4 sig_type=std_logic lab=d2}
+C {devices/lab_pin.sym} 80 -1320 2 0 {name=p4 sig_type=std_logic lab=d6}
 C {devices/gnd.sym} 40 -1260 0 0 {name=l5 lab=GND}
 C {devices/vsource.sym} 40 -1190 0 0 {name=V4 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 160ns 320ns)" savecurrent=false}
-C {devices/lab_pin.sym} 80 -1220 2 0 {name=p5 sig_type=std_logic lab=d3}
+C {devices/lab_pin.sym} 80 -1220 2 0 {name=p5 sig_type=std_logic lab=d2}
 C {devices/gnd.sym} 40 -1160 0 0 {name=l6 lab=GND}
 C {devices/vsource.sym} 340 -1490 0 0 {name=V5 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 320ns 640ns)" savecurrent=false}
-C {devices/lab_pin.sym} 380 -1520 2 0 {name=p6 sig_type=std_logic lab=d6}
+C {devices/lab_pin.sym} 380 -1520 2 0 {name=p6 sig_type=std_logic lab=d3}
 C {devices/gnd.sym} 340 -1460 0 0 {name=l7 lab=GND}
 C {devices/vsource.sym} 340 -1390 0 0 {name=V6 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 640ns 1280ns)" savecurrent=false}
 C {devices/lab_pin.sym} 380 -1420 2 0 {name=p7 sig_type=std_logic lab=d4}
@@ -236,7 +262,8 @@ value="
 .control
   save all
   tran 2n 7u uic
-  write tb_r2r.raw
+  *set filetype=ascii
+  write tb_r2rV2.raw
   quit
 .endc
 .end
@@ -293,23 +320,23 @@ device=resistor
 m=1}
 C {devices/lab_pin.sym} 280 -480 0 0 {name=p31 sig_type=std_logic lab=VCC}
 C {devices/res.sym} 240 -910 2 0 {name=R2
-value=250k
+value=400k
 footprint=1206
 device=resistor
 m=1}
 C {devices/gnd.sym} 240 -880 0 0 {name=l18 lab=GND}
 C {devices/lab_pin.sym} 820 -1040 0 0 {name=p35 sig_type=std_logic lab=c_int}
-C {j_opamp.sym} 650 -1000 0 0 {name=x5}
-C {devices/isource.sym} 620 -910 0 1 {name=I0 value=80u}
+C {j_opamp.sym} 650 -1000 0 0 {name=x5jo}
+C {devices/isource.sym} 620 -910 0 1 {name=I0 value=150u}
 C {devices/gnd.sym} 620 -880 0 0 {name=l19 lab=GND}
 C {devices/res.sym} 480 -900 2 0 {name=R3
-value=150k
+value=300k
 footprint=1206
 device=resistor
 m=1}
 C {devices/gnd.sym} 480 -870 0 0 {name=l20 lab=GND}
 C {devices/res.sym} 480 -1050 2 0 {name=R6
-value=100k
+value=50k
 footprint=1206
 device=resistor
 m=1}

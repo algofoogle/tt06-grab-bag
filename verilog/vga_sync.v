@@ -1,5 +1,5 @@
 `default_nettype none
-`timescale 1ns / 1ps
+//`timescale 1ns / 1ps
 
 module vga_sync #(
 
@@ -112,7 +112,7 @@ module vga_sync #(
   // Vertical tracing:
   always @(posedge clk) begin
           if (reset)                      vpos <= 0;
-    else  if (o_hmax)                     vpos <= (o_vmax) ? 1'b0 : vpos + 1'b1;
+    else  if (o_hmax)                     vpos <= (o_vmax) ? 10'b0 : vpos + 1'b1;
   end
 
   // HSYNC:

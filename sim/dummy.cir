@@ -1,0 +1,29 @@
+Simulation of an R2R DAC with Verilator and d_cosim
+
+.lib /home/anton/.volare/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+adut 
++ [ a1 a0 a1 a0 ] 
++ [ b1 b0 ]
++ null
++ dut
+.model dut d_cosim simulation="./dummy.so"
+
+.param vcc=1.8
+vcc vcc 0 {vcc}
+
+* Va0 a0 GND PULSE 0 1.8 2u 8n 10n   1u   2u
+* Va1 a1 GND PULSE 0 1.8 2u 8n 10n   2u   4u
+Va0 a0 GND PULSE 0 1.8 2u 0ns 0ns 1u 2u
+Va1 a1 GND PULSE 0 1.8 2u 0ns 0ns 2u 4u
+
+* simulate tt output path on each pin:
+R0 b0       b0_out  500
+C0 b0_out   0       5p
+R1 b1       b1_out  500
+C1 b1_out   0       5p
+
+.control
+    tran 2n 30u
+.endc
+.end

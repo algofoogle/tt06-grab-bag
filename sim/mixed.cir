@@ -9,22 +9,24 @@ Cosimulation of Anton's VGA digital test block with 3 R2R DACs, using Verilator 
 * list the inputs and outputs.
 * NOTE: We name bus signals individually, in the order they're defined in the Verilog:
 adut 
-+ [ clk rst_n in7 in6 in5 in4 in3 in2 in1 in0 ] 
-+ [ 
-+ hsync vsync hblank vblank 
-+ r7 r6 r5 r4 r3 r2 r1 r0 
++ [ clk rst_n in7 in6 in5 in4 in3 in2 in1 in0 ]
++ [
++ hsync vsync hblank vblank
++ r7 r6 r5 r4 r3 r2 r1 r0
 + g7 g6 g5 g4 g3 g2 g1 g0
-+ b7 b6 b5 b4 b3 b2 b1 b0 
-+ dr7 dg7 db7 
-+ dr6 dg6 db6 
-+ m7 m6 m5 m4 m3 m2 m1 m0 
-+ o_reset o_visible
-+ c7 c6 c5 c4 c3 c2 c1 c0 
-+ o_clk
-+ x7 x6 x5 x4 x3 x2 x1 x0 
-+ o_clk2 o_zero o_one
++ b7 b6 b5 b4 b3 b2 b1 b0
++ dr7 dg7 db7
++ dr6 dg6 db6
 +] null dut
 .model dut d_cosim simulation="./spicewrap.so"
+* Debug outputs:
+*+ m7 m6 m5 m4 m3 m2 m1 m0
+*+ o_reset o_visible
+*+ c7 c6 c5 c4 c3 c2 c1 c0
+*+ o_clk
+*+ x7 x6 x5 x4 x3 x2 x1 x0
+*+ o_clk2 o_zero o_one
+
 
 * connect the driver to the R2R dac
 * had to edit spice exported by xschem to add the subckt and ends
@@ -36,18 +38,22 @@ xr2r_R red      r7 r6 r5 r4 r3 r2 r1 r0 GND GND r2r
 xr2r_G green    g7 g6 g5 g4 g3 g2 g1 g0 GND GND r2r
 xr2r_B blue     b7 b6 b5 b4 b3 b2 b1 b0 GND GND r2r
 
-* simulate tt output path
-Cr1 red             GND 2.5p
+* Simulate tt output path load...
+*NOTE: According to @tnt it is better to model 2.5pF (to GND)
+* either side of the resistor, but because the digital model
+* has zero impedance (I think), I will be more conservative
+* and do it with 5pF just at the final output node...
+*Cr1 red             GND 2.5p
 Rr1 red             red_pin_out 500
-Cr2 red_pin_out     GND 2.5p
+Cr2 red_pin_out     GND 5p
 
-Cg1 green           GND 2.5p
+*Cg1 green           GND 2.5p
 Rg1 green           green_pin_out 500
-Cg2 green_pin_out   GND 2.5p
+Cg2 green_pin_out   GND 5p
 
-Cb1 blue            GND 2.5p
+*Cb1 blue            GND 2.5p
 Rb1 blue            blue_pin_out 500
-Cb2 blue_pin_out    GND 2.5p
+Cb2 blue_pin_out    GND 5p
 
 **** End of the ADC and its subcircuits.  Begin test circuit ****
 
@@ -74,22 +80,14 @@ Vin6 in6 GND PULSE 0 1.8 2u 0p 0p 1280n 2560n
 Vin7 in7 GND PULSE 0 1.8 2u 0p 0p 2560n 5120n
 
 .control
-tran 2n 30u
-* plot in0
-* plot in1
-* plot in2
-* plot rst_n
-* plot clk
-* plot red_pin_out
-* plot hsync
-* plot vsync
-* plot hblank
-* plot vblank
-* plot dr7
-* plot dg7
-* plot db7
-* plot dr6
-* plot dg6
-* plot db6
+  tran 2n 30u
+  let r_digi = (r7/2)+(r6/4)+(r5/8)+(r4/16)+(r3/32)+(r2/64)+(r1/128)+(r0/256)
+  let g_digi = (g7/2)+(g6/4)+(g5/8)+(g4/16)+(g3/32)+(g2/64)+(g1/128)+(g0/256)
+  let b_digi = (b7/2)+(b6/4)+(b5/8)+(b4/16)+(b3/32)+(b2/64)+(b1/128)+(b0/256)
+  set color2=rgb:F/0/0
+  set color3=rgb:0/F/0
+  set color4=rgb:0/0/F
+  plot r_digi g_digi b_digi title 'Digital block outputs'
+  plot red_pin_out green_pin_out blue_pin_out title 'Analog DAC outputs'
 .endc
 .end

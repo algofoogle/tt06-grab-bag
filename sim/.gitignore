@@ -1,0 +1,5 @@
+*.so
+*_obj_dir
+inputs.h
+outputs.h
+inouts.h

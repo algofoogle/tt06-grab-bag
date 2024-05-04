@@ -51,41 +51,43 @@ module controller_spicewrap(
 
     output wire dr6,
     output wire dg6,
-    output wire db6,
+    output wire db6
 
-    output wire m7,
-    output wire m6,
-    output wire m5,
-    output wire m4,
-    output wire m3,
-    output wire m2,
-    output wire m1,
-    output wire m0,
+    // // Debug stuff...
 
-    output wire o_reset,
-    output wire o_visible,
-    output wire c7,
-    output wire c6,
-    output wire c5,
-    output wire c4,
-    output wire c3,
-    output wire c2,
-    output wire c1,
-    output wire c0,
+    // output wire m7,
+    // output wire m6,
+    // output wire m5,
+    // output wire m4,
+    // output wire m3,
+    // output wire m2,
+    // output wire m1,
+    // output wire m0,
 
-    output wire o_clk,
-    output wire ix7,
-    output wire ix6,
-    output wire ix5,
-    output wire ix4,
-    output wire ix3,
-    output wire ix2,
-    output wire ix1,
-    output wire ix0,
+    // output wire o_reset,
+    // output wire o_visible,
+    // output wire c7,
+    // output wire c6,
+    // output wire c5,
+    // output wire c4,
+    // output wire c3,
+    // output wire c2,
+    // output wire c1,
+    // output wire c0,
 
-    output wire o_clk2,
-    output wire o_zero,
-    output wire o_one
+    // output wire o_clk,
+    // output wire ix7,
+    // output wire ix6,
+    // output wire ix5,
+    // output wire ix4,
+    // output wire ix3,
+    // output wire ix2,
+    // output wire ix1,
+    // output wire ix0,
+
+    // output wire o_clk2,
+    // output wire o_zero,
+    // output wire o_one
 
 );
 
@@ -106,16 +108,17 @@ module controller_spicewrap(
         .b7       (db7),
         .r6       (dr6),
         .g6       (dg6),
-        .b6       (db6),
-        .o_mode   ({m7,m6,m5,m4,m3,m2,m1,m0}),
-        .o_reset  (o_reset),
-        .o_visible(o_visible),
-        .o_rampc  ({c7,c6,c5,c4,c3,c2,c1,c0}),
-        .o_clk    (o_clk),
-        .o_in     ({ix7,ix6,ix5,ix4,ix3,ix2,ix1,ix0}),
-        .o_clk2   (o_clk2),
-        .o_zero   (o_zero),
-        .o_one    (o_one)
+        .b6       (db6)
+        // // Debug stuff...
+        // .o_mode   ({m7,m6,m5,m4,m3,m2,m1,m0}),
+        // .o_reset  (o_reset),
+        // .o_visible(o_visible),
+        // .o_rampc  ({c7,c6,c5,c4,c3,c2,c1,c0}),
+        // .o_clk    (o_clk),
+        // .o_in     ({ix7,ix6,ix5,ix4,ix3,ix2,ix1,ix0}),
+        // .o_clk2   (o_clk2),
+        // .o_zero   (o_zero),
+        // .o_one    (o_one)
     );
 
 

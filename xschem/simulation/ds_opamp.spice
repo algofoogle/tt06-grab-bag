@@ -1,0 +1,25 @@
+** sch_path: /home/anton/projects/tt06-grab-bag/xschem/ds_opamp.sch
+**.subckt ds_opamp VDD vin_n vin_p Vout VGND
+*.ipin vin_n
+*.ipin vin_p
+*.opin Vout
+*.iopin VDD
+*.iopin VGND
+XM1 net1 vin_n VDD VDD sky130_fd_pr__pfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
++ nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 net2 vin_p VDD VDD sky130_fd_pr__pfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
++ nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM3 net1 net1 VGND VGND sky130_fd_pr__nfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 net2 net1 VGND VGND sky130_fd_pr__nfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM7 Vout net4 VDD VDD sky130_fd_pr__pfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
++ nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM9 net3 VDD net2 VGND sky130_fd_pr__nfet_01v8 L=0.6 W=1 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
++ nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XC1 net3 Vout sky130_fd_pr__cap_mim_m3_1 W=20 L=20 MF=1 m=1
+XM6 Vout net2 VGND VGND sky130_fd_pr__nfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XR1 VGND net4 VGND sky130_fd_pr__res_high_po_0p35 L=20000 mult=1 m=1
+**.ends
+.end

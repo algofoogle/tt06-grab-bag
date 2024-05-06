@@ -19,10 +19,21 @@ R5 b_int a_int 250k m=1
 V11 NBIAS GND 1.1
 R1 a_int VCC 50k m=1
 R2 GND b_int 400k m=1
-x5jo VCC net3 net2 b_int c_int GND j_opamp
-I0 net3 GND 150u
+x5jo VCC net5 net2 b_int c_int GND j_opamp
+I0 net5 GND 150u
 R3 GND net2 300k m=1
 R6 net2 c_int 50k m=1
+x5 a_int2 d7 d6 d5 d4 d3 d2 d1 d0 GND GND r2r
+x6 out2 c_int2 GND tt06_analog_load
+R7 out2 GND 1e6 m=1
+R8 b_int2 a_int2 250k m=1
+R9 a_int2 VCC 50k m=1
+R10 GND b_int2 400k m=1
+x7 VCC net4 net3 b_int2 c_int2 GND j_opamp
+R11 GND net3 300k m=1
+R12 net3 c_int2 50k m=1
+XM1 net4 VCC GND GND sky130_fd_pr__nfet_01v8 L=0.69 W=8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 **** begin user architecture code
 
 ** opencircuitdesign pdks install

@@ -1,4 +1,8 @@
-cleansim: clean mixed
+cleansim: clean mixed render
+
+render:
+	python3 ../xschem/render.py
+	ls -alh ~/HOST_Documents/mixed.ppm
 
 mixed: mixed.cir spicewrap.so
 	ngspice $<

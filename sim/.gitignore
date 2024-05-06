@@ -3,3 +3,6 @@
 inputs.h
 outputs.h
 inouts.h
+render.log
+*.raw
+*.ppm

@@ -67,48 +67,56 @@ aclock 0 clk clock
 
 * reset signal
 
-Vreset rst_n GND PULSE 1.8 0 40n 0 0 1u 500u
+Vreset rst_n GND PULSE 1.8 0 40n 1n 1n 120n 34000u ;256u
 
 * DAC input value
-.param rise=    500p
-.param fall=    500p
-.param h0=  40n-500p
-.param h1=  80n-500p
-.param h2= 160n-500p
-.param h3= 320n-500p
-.param h4= 640n-500p
-.param h5=1280n-500p
-.param h6=2560n-500p
-.param h7=5120n-500p
-Vin0 in0 GND PULSE 0 1.8 2u {rise} {fall} {h0}    80n
-Vin1 in1 GND PULSE 0 1.8 2u {rise} {fall} {h1}   160n
-Vin2 in2 GND PULSE 0 1.8 2u {rise} {fall} {h2}   320n
-Vin3 in3 GND PULSE 0 1.8 2u {rise} {fall} {h3}   640n
-Vin4 in4 GND PULSE 0 1.8 2u {rise} {fall} {h4}  1280n
-Vin5 in5 GND PULSE 0 1.8 2u {rise} {fall} {h5}  2560n
-Vin6 in6 GND PULSE 0 1.8 2u {rise} {fall} {h6}  5120n
-Vin7 in7 GND PULSE 0 1.8 2u {rise} {fall} {h7} 10240n
+.param rise=    1n
+.param fall=    1n
+.param h0=  40n-1n
+.param h1=  80n-1n
+.param h2= 160n-1n
+.param h3= 320n-1n
+.param h4= 640n-1n
+.param h5=1280n-1n
+.param h6=2560n-1n
+.param h7=5120n-1n
+Vin0 in0 GND dc 0.0 ; PULSE    0.0  1.8    2u {rise} {fall} {h0}    80n
+Vin1 in1 GND dc 0.0 ; PULSE    0.0  1.8    2u {rise} {fall} {h1}   160n
+Vin2 in2 GND dc 0.0 ; PULSE    0.0  1.8    2u {rise} {fall} {h2}   320n
+Vin3 in3 GND dc 0.0 ; PULSE    0.0  1.8    2u {rise} {fall} {h3}   640n
+Vin4 in4 GND dc 1.8 ; PULSE    1.8  0.0    2u {rise} {fall} {h4}  1280n
+Vin5 in5 GND dc 1.8 ; PULSE    1.8  0.0    2u {rise} {fall} {h5}  2560n
+Vin6 in6 GND dc 0.0 ; PULSE    0.0  1.8    2u {rise} {fall} {h6}  5120n
+Vin7 in7 GND dc 0.0 ; PULSE    0.0  1.8    2u {rise} {fall} {h7} 10240n
 
 .control
-  tran 4n 64u 0 1n UIC
-  let r_digi = (r7/2)+(r6/4)+(r5/8)+(r4/16)+(r3/32)+(r2/64)+(r1/128)+(r0/256)
-  let g_digi = (g7/2)+(g6/4)+(g5/8)+(g4/16)+(g3/32)+(g2/64)+(g1/128)+(g0/256)
-  let b_digi = (b7/2)+(b6/4)+(b5/8)+(b4/16)+(b3/32)+(b2/64)+(b1/128)+(b0/256)
-  let in_digi = (in7/2)+(in6/4)+(in5/8)+(in4/16)+(in3/32)+(in2/64)+(in1/128)+(in0/256)
-  let s_in0 = in0 + 2
-  let s_in1 = in1 + 4
-  let s_in2 = in2 + 6
-  let s_in3 = in3 + 8
-  let s_in4 = in4 + 10
-  let s_in5 = in5 + 12
-  let s_in6 = in6 + 14
-  let s_in7 = in7 + 16
-  set color2=rgb:F/0/0
-  set color3=rgb:0/F/0
-  set color4=rgb:0/0/F
-  plot in_digi s_in0 s_in1 s_in2 s_in3 s_in4 s_in5 s_in6 s_in7 title 'Digital inputs'
-  plot r_digi g_digi b_digi title 'Digital block outputs'
-  plot red_pin_out green_pin_out blue_pin_out title 'Analog DAC outputs'
+  tran 8n 25000u 0 8n UIC
+  * let r_digi = (r7/2)+(r6/4)+(r5/8)+(r4/16)+(r3/32)+(r2/64)+(r1/128)+(r0/256)
+  * let g_digi = (g7/2)+(g6/4)+(g5/8)+(g4/16)+(g3/32)+(g2/64)+(g1/128)+(g0/256)
+  * let b_digi = (b7/2)+(b6/4)+(b5/8)+(b4/16)+(b3/32)+(b2/64)+(b1/128)+(b0/256)
+  * let in_digi = (in7/2)+(in6/4)+(in5/8)+(in4/16)+(in3/32)+(in2/64)+(in1/128)+(in0/256)
+  * let s_in0 = in0 + 2
+  * let s_in1 = in1 + 4
+  * let s_in2 = in2 + 6
+  * let s_in3 = in3 + 8
+  * let s_in4 = in4 + 10
+  * let s_in5 = in5 + 12
+  * let s_in6 = in6 + 14
+  * let s_in7 = in7 + 16
+  * set color2=rgb:F/0/0
+  * set color3=rgb:0/F/0
+  * set color4=rgb:0/0/F
+  * plot in_digi s_in0 s_in1 s_in2 s_in3 s_in4 s_in5 s_in6 s_in7 title 'Digital inputs'
+  * plot r_digi g_digi b_digi title 'Digital block outputs'
+  * plot red_pin_out green_pin_out blue_pin_out title 'Analog DAC outputs'
   write mixed.raw
+  + v(red_pin_out)
+  + v(green_pin_out)
+  + v(blue_pin_out)
+  + v(hsync)
+  + v(vsync)
+  + v(hblank)
+  + v(vblank)
+  quit
 .endc
 .end

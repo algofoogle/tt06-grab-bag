@@ -16,6 +16,7 @@ OUT = '~/HOST_Documents/mixed.ppm'
 VR = 'V(red_pin_out)'
 VG = 'V(green_pin_out)'
 VB = 'V(blue_pin_out)'
+HS = 'V(hsync)'
 
 
 # piecewise_linear_interpolation
@@ -63,32 +64,19 @@ def pwlerp(time_points, output_values, interval=0.1):
 
     return sampled_times, sampled_values
 
-# # --- TEST pwlerp: ---
-# ta = []
-# va = []
-# tc = 0.0
-# for n in range(200):
-#     ta.append(tc)
-#     va.append(np.sin(tc/150.0))
-#     tc += np.random.rand()*50.0
-# times, values = pwlerp(ta, va, (max(ta)-min(ta))/100.0)
-# with open('data_raw.csv', 'w') as f:
-#     for i in range(len(times)):
-#         f.write(f'{times[i]},{values[i]}\n')
-# # with open('data_raw.csv', 'w') as f:
-# #     for i in range(len(ta)):
-# #         f.write(f'{ta[i]},{va[i]}\n')
-# exit()
-
 
 data = ltspice.Ltspice(SRC)
 print(f'Loading {SRC}... ', end='')
 data.parse()
 print('Done')
 t = data.get_time()
-rdata = data.get_data(VR)
-gdata = data.get_data(VG)
-bdata = data.get_data(VB)
+# rdata = data.get_data(VR)
+# gdata = data.get_data(VG)
+# bdata = data.get_data(VB)
+time_data, rdata = pwlerp(t, data.get_data(VR), 40e-9)
+_,         gdata = pwlerp(t, data.get_data(VG), 40e-9)
+_,         bdata = pwlerp(t, data.get_data(VB), 40e-9)
+_,         hsync = pwlerp(t, data.get_data(VB), 40e-9)
 # Min and max tracking:
 n = 200
 x = -200
@@ -102,32 +90,31 @@ transform = lambda c: int(255*max(0,min(1,(c-scale_min)/sr)))
 # -- Buffered DAC output:
 # scale_min = 0.3
 # scale_max = 1.4
-div = 1 # Resolution divider for data samples.
-samples = int(t.size/div)
-print(f'Times: {t.size} - Samples: {samples}')
+pixels = time_data.size
+print(f'Raw samples: {t.size} - Pixels: {pixels}')
+lines = int(np.ceil(pixels / 800))
+tail = pixels % 800
 out_file = os.path.expanduser(OUT)
-last_time = 0.0
-with open('render.log', 'w') as log:
-    with open(out_file, 'w') as f:
-        f.write("P3\n")
-        f.write(f'{samples} 1\n')
-        f.write('255\n')
-        for i in range(samples):
-            # Get raw R/G/B values:
-            r = rdata[i*div]
-            g = gdata[i*div]
-            b = bdata[i*div]
-            delta = t[i*div]-last_time
-            last_time = t[i*div]
-            log.write(f'{i}: {t[i*div]*1_000_000_000} delta: {delta*1_000_000_000}\n')
-            # Adjust tracked min/max values from them:
-            n = min(n,r,g,b)
-            x = max(x,r,g,b)
-            # Now scale them to the 0..255 range:
-            r = transform(r)
-            g = transform(g)
-            b = transform(b)
-            f.write(f'{r} {g} {b} ')
-            # breakpoint()
+with open(out_file, 'w') as f:
+    f.write("P3\n")
+    f.write(f'800 {lines}\n')
+    f.write('255\n')
+    for i in range(pixels):
+        # Get raw R/G/B values:
+        r = rdata[i]
+        g = gdata[i]
+        b = bdata[i]
+        # Adjust tracked min/max values from them:
+        n = min(n,r,g,b)
+        x = max(x,r,g,b)
+        # Now scale them to the 0..255 range:
+        r = transform(r)
+        g = transform(g)
+        b = transform(b)
+        f.write(f'{r} {g} {b} ')
+        if i % 800 == 799: f.write('\n')
+        # breakpoint()
+    for _ in range(tail):
+        f.write(f'0 255 0 ')
 print(f'min: {n:0.6f} :: max: {x:0.6f}')
 

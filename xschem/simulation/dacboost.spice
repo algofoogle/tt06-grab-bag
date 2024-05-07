@@ -1,0 +1,30 @@
+** sch_path: /home/anton/projects/tt06-grab-bag/xschem/dacboost.sch
+.subckt dacboost aout ain VCC VSS
+*.PININFO ain:I aout:O VCC:B VSS:B
+x7 VCC net3 net1 net2 aout VSS j_opamp
+XM1 net3 VCC VSS VSS sky130_fd_pr__nfet_01v8 L=0.69 W=8 nf=1 m=1
+XR1 ain VCC VSS sky130_fd_pr__res_high_po_0p35 L=44.8 mult=1 m=1
+XR2 ain net2 VSS sky130_fd_pr__res_high_po_0p35 L=226.125 mult=1 m=1
+XR3 net2 VSS VSS sky130_fd_pr__res_high_po_0p35 L=362.2 mult=1 m=1
+XR4 net1 VSS VSS sky130_fd_pr__res_high_po_0p35 L=271.52 mult=1 m=1
+XR5 net1 aout VSS sky130_fd_pr__res_high_po_0p35 L=44.8 mult=1 m=1
+.ends
+
+* expanding   symbol:  j_opamp.sym # of pins=6
+** sym_path: /home/anton/projects/tt06-grab-bag/xschem/j_opamp.sym
+** sch_path: /home/anton/projects/tt06-grab-bag/xschem/j_opamp.sch
+.subckt j_opamp vdd iref vin_n vin_p vout vss
+*.PININFO vdd:B vss:B vin_n:I vin_p:I iref:I vout:O
+XM1 vbn vin_n vp vp sky130_fd_pr__pfet_01v8 L=0.15 W=3 nf=1 m=1
+XM2 voe1 vin_p vp vp sky130_fd_pr__pfet_01v8 L=0.15 W=3 nf=1 m=1
+XM3 vbn vbn vss vss sky130_fd_pr__nfet_01v8 L=0.6 W=6 nf=1 m=1
+XM4 voe1 vbn vss vss sky130_fd_pr__nfet_01v8 L=0.6 W=6 nf=1 m=1
+XM5 vp iref vdd vdd sky130_fd_pr__pfet_01v8 L=0.75 W=5 nf=1 m=1
+XM7 vout iref vdd vdd sky130_fd_pr__pfet_01v8 L=0.6 W=16 nf=1 m=1
+XM8 iref iref vdd vdd sky130_fd_pr__pfet_01v8 L=0.75 W=5 nf=1 m=1
+XM9 net1 vdd voe1 vss sky130_fd_pr__nfet_01v8 L=0.6 W=10 nf=1 m=1
+XC1 net1 vout sky130_fd_pr__cap_mim_m3_1 W=28 L=20 m=1
+XM6 vout voe1 vss vss sky130_fd_pr__nfet_01v8 L=0.6 W=10 nf=1 m=1
+.ends
+
+.end

@@ -132,19 +132,19 @@ N 340 -1320 380 -1320 {
 lab=d5}
 N 340 -1220 380 -1220 {
 lab=d7}
-N 460 -90 460 -70 {
+N 450 -250 450 -230 {
 lab=GND}
-N 460 -70 460 -50 {
+N 450 -230 450 -210 {
 lab=GND}
-N 840 -190 880 -190 {
+N 830 -350 870 -350 {
 lab=out_parax}
-N 460 -230 460 -190 {
+N 450 -390 450 -350 {
 lab=a_int_parax}
-N 460 -190 480 -190 {
+N 450 -350 470 -350 {
 lab=a_int_parax}
-N 480 -190 600 -190 {
+N 470 -350 590 -350 {
 lab=a_int_parax}
-N 840 -170 840 -130 {
+N 830 -330 830 -290 {
 lab=GND}
 N 190 -1640 190 -1610 {
 lab=GND}
@@ -192,9 +192,9 @@ N 560 -960 760 -960 {
 lab=b_int}
 N 520 -960 560 -960 {
 lab=b_int}
-N 350 -500 350 -480 {
+N 350 -520 350 -500 {
 lab=GND}
-N 350 -480 350 -460 {
+N 350 -500 350 -480 {
 lab=GND}
 N 1240 -620 1280 -620 {
 lab=out2}
@@ -204,52 +204,18 @@ N 1360 -620 1360 -560 {
 lab=out2}
 N 1000 -660 1000 -620 {
 lab=c_int2}
-N 350 -600 430 -600 {
-lab=a_int2}
-N 430 -600 460 -600 {
-lab=a_int2}
-N 840 -560 840 -520 {
-lab=GND}
-N 900 -620 1000 -620 {
-lab=c_int2}
-N 820 -730 820 -670 {
-lab=VCC}
-N 930 -760 930 -620 {
-lab=c_int2}
-N 720 -760 930 -760 {
-lab=c_int2}
-N 660 -680 660 -550 {
-lab=#net3}
-N 660 -760 660 -740 {
-lab=c_int2}
-N 660 -760 720 -760 {
-lab=c_int2}
-N 560 -600 760 -600 {
-lab=b_int2}
-N 520 -600 560 -600 {
-lab=b_int2}
 N 1280 -980 1360 -980 {
 lab=out}
 N 1280 -620 1360 -620 {
 lab=out2}
-N 800 -400 800 -380 {
-lab=GND}
-N 800 -560 800 -460 {
-lab=#net4}
-N 800 -430 880 -430 {
-lab=GND}
-N 880 -430 880 -380 {
-lab=GND}
-N 800 -380 880 -380 {
-lab=GND}
-N 740 -430 760 -430 {
+N 920 -620 1000 -620 {
+lab=c_int2}
+N 930 -700 930 -600 {
 lab=VCC}
-N 740 -700 820 -700 {
+N 920 -600 930 -600 {
 lab=VCC}
-N 660 -640 760 -640 {
+N 350 -620 620 -620 {
 lab=#net3}
-N 740 -700 740 -430 {
-lab=VCC}
 C {devices/code.sym} 640 -1510 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
@@ -318,24 +284,24 @@ value="
 .endc
 .end
 "}
-C {r2r.sym} 310 -120 0 0 {name=x3
+C {r2r.sym} 300 -280 0 0 {name=x3
 schematic=r2r_parax.sim
 spice_sym_def="tcleval(.include [file normalize ../mag/r2r.sim.spice])"
 tclcommand="textwindow          [file normalize ../mag/r2r.sim.spice]"
 }
-C {devices/gnd.sym} 460 -50 0 0 {name=l11 lab=GND}
-C {tt06_analog_load.sym} 690 -170 0 0 {name=x4}
-C {devices/lab_pin.sym} 880 -190 2 0 {name=p19 sig_type=std_logic lab=out_parax}
-C {devices/lab_pin.sym} 160 -50 0 0 {name=p20 sig_type=std_logic lab=d0}
-C {devices/lab_pin.sym} 160 -70 0 0 {name=p21 sig_type=std_logic lab=d1}
-C {devices/lab_pin.sym} 160 -90 0 0 {name=p22 sig_type=std_logic lab=d2}
-C {devices/lab_pin.sym} 160 -110 0 0 {name=p23 sig_type=std_logic lab=d3}
-C {devices/lab_pin.sym} 160 -130 0 0 {name=p24 sig_type=std_logic lab=d4}
-C {devices/lab_pin.sym} 160 -150 0 0 {name=p25 sig_type=std_logic lab=d5}
-C {devices/lab_pin.sym} 160 -170 0 0 {name=p26 sig_type=std_logic lab=d6}
-C {devices/lab_pin.sym} 160 -190 0 0 {name=p27 sig_type=std_logic lab=d7}
-C {devices/lab_pin.sym} 460 -230 2 0 {name=p28 sig_type=std_logic lab=a_int_parax}
-C {devices/gnd.sym} 840 -130 0 0 {name=l14 lab=GND}
+C {devices/gnd.sym} 450 -210 0 0 {name=l11 lab=GND}
+C {tt06_analog_load.sym} 680 -330 0 0 {name=x4}
+C {devices/lab_pin.sym} 870 -350 2 0 {name=p19 sig_type=std_logic lab=out_parax}
+C {devices/lab_pin.sym} 150 -210 0 0 {name=p20 sig_type=std_logic lab=d0}
+C {devices/lab_pin.sym} 150 -230 0 0 {name=p21 sig_type=std_logic lab=d1}
+C {devices/lab_pin.sym} 150 -250 0 0 {name=p22 sig_type=std_logic lab=d2}
+C {devices/lab_pin.sym} 150 -270 0 0 {name=p23 sig_type=std_logic lab=d3}
+C {devices/lab_pin.sym} 150 -290 0 0 {name=p24 sig_type=std_logic lab=d4}
+C {devices/lab_pin.sym} 150 -310 0 0 {name=p25 sig_type=std_logic lab=d5}
+C {devices/lab_pin.sym} 150 -330 0 0 {name=p26 sig_type=std_logic lab=d6}
+C {devices/lab_pin.sym} 150 -350 0 0 {name=p27 sig_type=std_logic lab=d7}
+C {devices/lab_pin.sym} 450 -390 2 0 {name=p28 sig_type=std_logic lab=a_int_parax}
+C {devices/gnd.sym} 830 -290 0 0 {name=l14 lab=GND}
 C {devices/vsource.sym} 190 -1670 0 0 {name=V10 value=1.8 savecurrent=false}
 C {devices/gnd.sym} 190 -1610 0 0 {name=l15 lab=GND}
 C {devices/lab_pin.sym} 190 -1740 0 0 {name=p30 sig_type=std_logic lab=VCC}
@@ -389,71 +355,26 @@ value=50k
 footprint=1206
 device=resistor
 m=1}
-C {r2r.sym} 200 -530 0 0 {name=x5}
-C {devices/gnd.sym} 350 -460 0 0 {name=l21 lab=GND}
+C {r2r.sym} 200 -550 0 0 {name=x5}
+C {devices/gnd.sym} 350 -480 0 0 {name=l21 lab=GND}
 C {tt06_analog_load.sym} 1090 -600 0 0 {name=x6}
 C {devices/gnd.sym} 1240 -600 0 0 {name=l22 lab=GND}
 C {devices/lab_pin.sym} 1280 -620 1 0 {name=p33 sig_type=std_logic lab=out2}
-C {devices/lab_pin.sym} 50 -460 0 0 {name=p36 sig_type=std_logic lab=d0}
-C {devices/lab_pin.sym} 50 -480 0 0 {name=p37 sig_type=std_logic lab=d1}
-C {devices/lab_pin.sym} 50 -500 0 0 {name=p38 sig_type=std_logic lab=d2}
-C {devices/lab_pin.sym} 50 -520 0 0 {name=p39 sig_type=std_logic lab=d3}
-C {devices/lab_pin.sym} 50 -540 0 0 {name=p40 sig_type=std_logic lab=d4}
-C {devices/lab_pin.sym} 50 -560 0 0 {name=p41 sig_type=std_logic lab=d5}
-C {devices/lab_pin.sym} 50 -580 0 0 {name=p42 sig_type=std_logic lab=d6}
-C {devices/lab_pin.sym} 50 -600 0 0 {name=p43 sig_type=std_logic lab=d7}
+C {devices/lab_pin.sym} 50 -480 0 0 {name=p36 sig_type=std_logic lab=d0}
+C {devices/lab_pin.sym} 50 -500 0 0 {name=p37 sig_type=std_logic lab=d1}
+C {devices/lab_pin.sym} 50 -520 0 0 {name=p38 sig_type=std_logic lab=d2}
+C {devices/lab_pin.sym} 50 -540 0 0 {name=p39 sig_type=std_logic lab=d3}
+C {devices/lab_pin.sym} 50 -560 0 0 {name=p40 sig_type=std_logic lab=d4}
+C {devices/lab_pin.sym} 50 -580 0 0 {name=p41 sig_type=std_logic lab=d5}
+C {devices/lab_pin.sym} 50 -600 0 0 {name=p42 sig_type=std_logic lab=d6}
+C {devices/lab_pin.sym} 50 -620 0 0 {name=p43 sig_type=std_logic lab=d7}
 C {devices/res.sym} 1360 -530 0 0 {name=R7
 value=1e6
 footprint=1206
 device=resistor
 m=1}
 C {devices/gnd.sym} 1360 -480 0 0 {name=l23 lab=GND}
-C {devices/lab_pin.sym} 560 -600 1 0 {name=p44 sig_type=std_logic lab=b_int2}
-C {devices/lab_pin.sym} 430 -600 1 0 {name=p45 sig_type=std_logic lab=a_int2}
-C {devices/res.sym} 490 -600 1 0 {name=R8
-value=250k
-footprint=1206
-device=resistor
-m=1}
-C {devices/gnd.sym} 840 -520 0 0 {name=l24 lab=GND}
-C {devices/lab_pin.sym} 820 -730 0 0 {name=p46 sig_type=std_logic lab=VCC}
-C {devices/res.sym} 370 -630 2 0 {name=R9
-value=50k
-footprint=1206
-device=resistor
-m=1}
-C {devices/lab_pin.sym} 370 -660 0 0 {name=p47 sig_type=std_logic lab=VCC}
-C {devices/res.sym} 560 -570 2 0 {name=R10
-value=400k
-footprint=1206
-device=resistor
-m=1}
-C {devices/gnd.sym} 560 -540 0 0 {name=l25 lab=GND}
+C {devices/lab_pin.sym} 930 -700 0 0 {name=p46 sig_type=std_logic lab=VCC}
 C {devices/lab_pin.sym} 1000 -660 0 0 {name=p48 sig_type=std_logic lab=c_int2}
-C {j_opamp.sym} 830 -620 0 0 {name=x7}
-C {devices/gnd.sym} 800 -380 0 0 {name=l26 lab=GND}
-C {devices/res.sym} 660 -520 2 0 {name=R11
-value=300k
-footprint=1206
-device=resistor
-m=1}
-C {devices/gnd.sym} 660 -490 0 0 {name=l27 lab=GND}
-C {devices/res.sym} 660 -710 2 0 {name=R12
-value=50k
-footprint=1206
-device=resistor
-m=1}
-C {sky130_fd_pr/nfet_01v8.sym} 780 -430 0 0 {name=M1
-L=0.69
-W=8
-nf=1 
-mult=1
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=nfet_01v8
-spiceprefix=X
-}
+C {dacboost.sym} 770 -600 0 0 {name=x7}
+C {devices/gnd.sym} 920 -580 0 0 {name=l24 lab=GND}

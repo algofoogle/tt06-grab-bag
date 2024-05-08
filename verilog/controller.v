@@ -81,7 +81,7 @@ module controller(
   wire [2:0] mode       = mode_params[6:4];
   always @(posedge clk) begin
     if (reset) begin
-      mode_params <= ui_in;
+      mode_params <= ui_in; //SMELL: in future, make inputs for all but mode 0 unregistered (i.e. they can change while running)
     end
   end
 

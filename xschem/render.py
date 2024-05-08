@@ -6,17 +6,29 @@ import numpy as np
 # SRC = 'simulation/tb_r2rV2.raw'
 # OUT = 'unbuffered_parax.ppm'
 SRC = 'mixed.raw'
-OUT = '~/HOST_Documents/mixed.ppm'
+OUT = '~/HOST_Documents/mixed_raw.ppm'
 # VR = 'V(out)'
 # VG = 'V(out)'
 # VB = 'V(out)'
 # VR = 'V(out_parax)'
 # VG = 'V(out_parax)'
 # VB = 'V(out_parax)'
-VR = 'V(red_pin_out)'
-VG = 'V(green_pin_out)'
-VB = 'V(blue_pin_out)'
+# VR = 'V(r_pin_out)'
+# VG = 'V(g_pin_out)'
+# VB = 'V(b_pin_out)'
+# VR = 'V(routpin)'
+# VG = 'V(goutpin)'
+# VB = 'V(boutpin)'
+VR = 'V(rdacxhzpin)'
+VG = 'V(gdacxhzpin)'
+VB = 'V(bdacxhzpin)'
 HS = 'V(hsync)'
+# # Typical amplified outputs:
+# scale_min = 0.30
+# scale_max = 1.30
+# Typical raw DAC high-Z range:
+scale_min = 0.00
+scale_max = 1.80
 
 
 # piecewise_linear_interpolation
@@ -83,8 +95,8 @@ x = -200
 # scale_min/max...
 # Voltage range that maps to 0..255 out (with clamping):
 # -- Raw (unbuffered) DAC output:
-scale_min = 0.00
-scale_max = 1.67
+# scale_min = 0.00
+# scale_max = 1.67
 sr = scale_max-scale_min
 transform = lambda c: int(255*max(0,min(1,(c-scale_min)/sr)))
 # -- Buffered DAC output:

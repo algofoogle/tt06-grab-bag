@@ -40,6 +40,11 @@ adut
 * (assumed) zero-impedance digital outputs that Verilator/cosim presents,
 * just for comparing different output paths...
 
+********** NOTE: To speed this simulation up a fair bit,
+********** you can comment out the DAC triplets you don't
+********** care about, and the corresponding output pin
+********** loading, and remove them from the `write` line.
+
 * These ones are the unbuffered outputs (TT06):
 
 xr2r_Rhz rdachz r7 r6 r5 r4 r3 r2 r1 r0 GND GND r2r

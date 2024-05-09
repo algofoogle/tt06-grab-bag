@@ -5,30 +5,36 @@ import numpy as np
 
 # SRC = 'simulation/tb_r2rV2.raw'
 # OUT = 'unbuffered_parax.ppm'
-SRC = 'mixed.raw'
-OUT = '~/HOST_Documents/mixed_raw.ppm'
-# VR = 'V(out)'
-# VG = 'V(out)'
-# VB = 'V(out)'
+SRC = 'mixed.raw' # Source ngspice raw output file.
+OUT = '~/HOST_Documents/mixed_raw.ppm' # Output image file to create.
+
+HS = 'V(hsync)'
+
+# ===== Image writer's RGB channel source definitions =====
+
+# # --- Use raw PEX model output for all 3 channels ---
 # VR = 'V(out_parax)'
 # VG = 'V(out_parax)'
 # VB = 'V(out_parax)'
-# VR = 'V(r_pin_out)'
-# VG = 'V(g_pin_out)'
-# VB = 'V(b_pin_out)'
-# VR = 'V(routpin)'
-# VG = 'V(goutpin)'
-# VB = 'V(boutpin)'
-VR = 'V(rdacxhzpin)'
-VG = 'V(gdacxhzpin)'
-VB = 'V(bdacxhzpin)'
-HS = 'V(hsync)'
-# # Typical amplified outputs:
-# scale_min = 0.30
-# scale_max = 1.30
-# Typical raw DAC high-Z range:
-scale_min = 0.00
-scale_max = 1.80
+
+# --- Buffered outputs ---
+VR = 'V(routpin)'
+VG = 'V(goutpin)'
+VB = 'V(boutpin)'
+
+# # --- Terribly unbuffered outputs ---
+# VR = 'V(rdacxhzpin)'
+# VG = 'V(gdacxhzpin)'
+# VB = 'V(bdacxhzpin)'
+
+# ===== Output range scaling =====
+# Typical amplified outputs:
+scale_min = 0.30
+scale_max = 1.30
+
+# # Typical raw DAC unbuffered range:
+# scale_min = 0.00
+# scale_max = 1.80
 
 
 # piecewise_linear_interpolation
@@ -105,7 +111,7 @@ transform = lambda c: int(255*max(0,min(1,(c-scale_min)/sr)))
 pixels = time_data.size
 print(f'Raw samples: {t.size} - Pixels: {pixels}')
 lines = int(np.ceil(pixels / 800))
-tail = pixels % 800
+# tail = pixels % 800
 out_file = os.path.expanduser(OUT)
 with open(out_file, 'w') as f:
     f.write("P3\n")
@@ -126,7 +132,7 @@ with open(out_file, 'w') as f:
         f.write(f'{r} {g} {b} ')
         if i % 800 == 799: f.write('\n')
         # breakpoint()
-    for _ in range(tail):
-        f.write(f'0 255 0 ')
+    # for _ in range(tail):
+    #     f.write(f'0 255 0 ')
 print(f'min: {n:0.6f} :: max: {x:0.6f}')
 

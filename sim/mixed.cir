@@ -35,9 +35,12 @@ adut
 .include "../xschem/simulation/dacboost.spice" 
 *.include "../mag/r2r.spice" 
 
-xr2r_R rdac r7 r6 r5 r4 r3 r2 r1 r0 GND GND r2r
-xr2r_G gdac g7 g6 g5 g4 g3 g2 g1 g0 GND GND r2r
-xr2r_B bdac b7 b6 b5 b4 b3 b2 b1 b0 GND GND r2r
+
+* Below are 4 copies of the 3 (RGB) DACs, all driven by the same
+* (assumed) zero-impedance digital outputs that Verilator/cosim presents,
+* just for comparing different output paths...
+
+* These ones are the unbuffered outputs (TT06):
 
 xr2r_Rhz rdachz r7 r6 r5 r4 r3 r2 r1 r0 GND GND r2r
 xr2r_Ghz gdachz g7 g6 g5 g4 g3 g2 g1 g0 GND GND r2r
@@ -51,6 +54,10 @@ xr2r_Rxhz rdacxhz r7 r6 r5 r4 r3 r2 r1 r0 GND GND r2r
 xr2r_Gxhz gdacxhz g7 g6 g5 g4 g3 g2 g1 g0 GND GND r2r
 xr2r_Bxhz bdacxhz b7 b6 b5 b4 b3 b2 b1 b0 GND GND r2r
 
+* These ones are the buffered outputs (planned for TT07):
+xr2r_R rdac r7 r6 r5 r4 r3 r2 r1 r0 GND GND r2r
+xr2r_G gdac g7 g6 g5 g4 g3 g2 g1 g0 GND GND r2r
+xr2r_B bdac b7 b6 b5 b4 b3 b2 b1 b0 GND GND r2r
 xdacboost_r rout rdac vcc GND dacboost
 xdacboost_g gout gdac vcc GND dacboost
 xdacboost_b bout bdac vcc GND dacboost
@@ -72,6 +79,7 @@ Cg2 goutpin         GND 5p
 Rb1 bout            boutpin 500
 Cb2 boutpin         GND 5p
 
+* Unbuffered outputs attached to the (typical) high-impedance R2R DACs:
 Rrhz1 rdachz        rdachzpin 500
 Crhz2 rdachzpin     GND 5p
 Rghz1 gdachz        gdachzpin 500
@@ -79,6 +87,7 @@ Cghz2 gdachzpin     GND 5p
 Rbhz1 bdachz        bdachzpin 500
 Cbhz2 bdachzpin     GND 5p
 
+* Unbuffered, but a cheat way of modeling weaker drive:
 Rrhhz1 rdachhz        rdachhzpin 5500
 Crhhz2 rdachhzpin     GND 5p
 Rghhz1 gdachhz        gdachhzpin 5500
@@ -86,6 +95,7 @@ Cghhz2 gdachhzpin     GND 5p
 Rbhhz1 bdachhz        bdachhzpin 5500
 Cbhhz2 bdachhzpin     GND 5p
 
+* Terrible, weakest drive:
 Rrxhz1 rdacxhz        rdacxhzpin 65500
 Crxhz2 rdacxhzpin     GND 7p
 Rgxhz1 gdacxhz        gdacxhzpin 65500
@@ -99,16 +109,15 @@ Cbxhz2 bdacxhzpin     GND 7p
 .param vcc=1.8
 vcc vcc 0 {vcc}
 
-* Digital clock signal
+* 25MHz Digital clock signal
 
 aclock 0 clk clock
 .model clock d_osc cntl_array=[-1 1] freq_array=[25Meg 25Meg]
 
 * reset signal
-
 Vreset rst_n GND PULSE 1.8 0 40n 1n 1n 120n 34m ;256u
 
-* DAC input value
+* Pulse duty cycle parameters for when we do Mode 0 (pass-thru):
 .param rise=    1n
 .param fall=    1n
 .param h0=  40n-1n
@@ -120,28 +129,40 @@ Vreset rst_n GND PULSE 1.8 0 40n 1n 1n 120n 34m ;256u
 .param h6=2560n-1n
 .param h7=5120n-1n
 
-* --- Mode 3: XOR ---
-* Vin0 in0 GND dc 0.0 ; PULSE    0.0  1.8    2u {rise} {fall} {h0}    80n
-* Vin1 in1 GND dc 0.0 ; PULSE    0.0  1.8    2u {rise} {fall} {h1}   160n
-* Vin2 in2 GND dc 0.0 ; PULSE    0.0  1.8    2u {rise} {fall} {h2}   320n
-* Vin3 in3 GND dc 0.0 ; PULSE    0.0  1.8    2u {rise} {fall} {h3}   640n
-* Vin4 in4 GND dc 1.8 ; PULSE    1.8  0.0    2u {rise} {fall} {h4}  1280n
-* Vin5 in5 GND dc 1.8 ; PULSE    1.8  0.0    2u {rise} {fall} {h5}  2560n
-* Vin6 in6 GND dc 0.0 ; PULSE    0.0  1.8    2u {rise} {fall} {h6}  5120n
-* Vin7 in7 GND dc 0.0 ; PULSE    0.0  1.8    2u {rise} {fall} {h7} 10240n
+* * --- Mode 0: PASS: ui_in passes thru directly to all 3 DACs ---
+* * In this case, set up as a ramp with a 20.48ms period:
+* Vin0 in0 GND PULSE   0.0  1.8   200n {rise} {fall} {h0}    80n
+* Vin1 in1 GND PULSE   0.0  1.8   200n {rise} {fall} {h1}   160n
+* Vin2 in2 GND PULSE   0.0  1.8   200n {rise} {fall} {h2}   320n
+* Vin3 in3 GND PULSE   0.0  1.8   200n {rise} {fall} {h3}   640n
+* Vin4 in4 GND PULSE   0.0  1.8   200n {rise} {fall} {h4}  1280n
+* Vin5 in5 GND PULSE   0.0  1.8   200n {rise} {fall} {h5}  2560n
+* Vin6 in6 GND PULSE   0.0  1.8   200n {rise} {fall} {h6}  5120n
+* Vin7 in7 GND PULSE   0.0  1.8   200n {rise} {fall} {h7} 10240n
 
-* --- Mode 1: RAMP ---
-Vin0 in0 GND dc 0.0 ; Primary...
-Vin1 in1 GND dc 0.0 ; ...= 0 (Red primary, Green secondary, Blue fade)
-Vin2 in2 GND dc 0.0 ; Divider...
-Vin3 in3 GND dc 0.0 ; ...= 0 (none)
-Vin4 in4 GND dc 1.8 ; Mode...
-Vin5 in5 GND dc 0.0 ; ...
-Vin6 in6 GND dc 0.0 ; ...= 001 (ramp tests)
-Vin7 in7 GND dc 0.0 ; Timing = 0 (standard VGA)
+* --- Mode 3: XOR: Pretty XOR pattern is selected by ui_in[7:0]=8'b00110000 ---
+Vin0 in0 GND dc 0.0
+Vin1 in1 GND dc 0.0
+Vin2 in2 GND dc 0.0
+Vin3 in3 GND dc 0.0
+Vin4 in4 GND dc 1.8
+Vin5 in5 GND dc 1.8
+Vin6 in6 GND dc 0.0
+Vin7 in7 GND dc 0.0
+
+* * --- Mode 1: RAMP: Ramp generator with primary=X, secondary=Y, fade=frame# ---
+* Vin0 in0 GND dc 0.0 ; Primary...
+* Vin1 in1 GND dc 0.0 ; ...= 0 (Red primary, Green secondary, Blue fade)
+* Vin2 in2 GND dc 0.0 ; Divider...
+* Vin3 in3 GND dc 0.0 ; ...= 0 (none)
+* Vin4 in4 GND dc 1.8 ; Mode...
+* Vin5 in5 GND dc 1.8 ; ...
+* Vin6 in6 GND dc 0.0 ; ...= 011 (XOR)
+* Vin7 in7 GND dc 0.0 ; Timing = 0 (standard VGA)
 
 
 .control
+  * 16.8ms is 1 full frame.
   tran 8n 16.8m 0 8n UIC
   * let r_digi = (r7/2)+(r6/4)+(r5/8)+(r4/16)+(r3/32)+(r2/64)+(r1/128)+(r0/256)
   * let g_digi = (g7/2)+(g6/4)+(g5/8)+(g4/16)+(g3/32)+(g2/64)+(g1/128)+(g0/256)

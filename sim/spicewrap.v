@@ -1,5 +1,8 @@
 `default_nettype none
 
+// This wrapper exists to work around what appears to be a problem where
+// ngspice doesn't properly support buses (vectors) in d_cosim.
+
 module controller_spicewrap(
     input wire clk,
     input wire rst_n,

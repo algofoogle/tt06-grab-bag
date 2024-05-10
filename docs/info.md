@@ -2,8 +2,10 @@
 You can also include images in this folder and reference them in the markdown. Each image must be less than
 512 kb in size, and the combined size of all images must be less than 1 MB.
 
-NOTE: HTML entity &#x2053; is known as a 'swung dash' and resembles a tilde (~) but I've used it here for
-"approximate ranges" because without it Markdown will see ~ as a 'strikeout' boundary.
+NOTE: I've used &tilde; instead of actual `~` to avoid a mismatch between GFM and the PDF doc generation
+(i.e. GFM sees this character as a strikethrough marker, but the PDF doc generation does not).
+Ideally I would use &#x2053 ('swung dash') which is technically probably the correct symbol for
+"approximate ranges" but this doesn't work in the PDF generator.
 -->
 
 ![tt06-grab-bag GDS layout showing digital block, 4 DACs, and 1 inverter](./layout.png)

@@ -26,7 +26,8 @@ To learn more and get started, visit https://tinytapeout.com.
 
 For specifications and instructions, see the [analog specs page](https://tinytapeout.com/specs/analog/).
 
-*Note*: Analog designs are currently in beta. There's a small chance that the changes will change before the deadline for Tiny Tapeout 6, or that we will have to postpone the analog design support to a future shuttle. If you have any questions, please join the [Tiny Tapeout Discord](https://tinytapeout.com/discord) and ask in the #analog channel.
+*Note*: At the time of writing (2024-05-11) analog designs are currently in beta.
+If you have any questions, please join the [Tiny Tapeout Discord](https://tinytapeout.com/discord) and ask in the `#analog` channel.
 
 # Resources
 

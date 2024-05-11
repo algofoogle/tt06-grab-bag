@@ -2,14 +2,19 @@
 
 # Anton's TT06 grab bag
 
-This is a very simple analog project, created from the [TT06 analog template repo](https://github.com/TinyTapeout/tt06-analog-template).
+This is a simple analog/mixed-signal project, created from the [TT06 analog template repo](https://github.com/TinyTapeout/tt06-analog-template).
 
-I am learning to make basic analog designs to submit to TT06, so I'm not sure what you'll find in here ultimately, but so far this is just:
+![GDS layout render](./docs/layout.png)
 
-*   A bog-standard CMOS inverter.
-*   A simple 8-bit R2R DAC.
+I was invited to participate in the first round of Matt Venn's Zero to ASIC **Analog Course** beta, and this was the design I ultimately submitted to TT06.
 
-[Read the documentation for project](docs/info.md)
+It implements:
+*   A bog-standard CMOS inverter. That was my very first custom layout attempt.
+*   A digital block that generates a few basic 24b-colour (RGB888) VGA test patterns.
+*   Analog RGB outputs (running digital block VGA outputs through 3x 8-bit R2R DACs).
+*   An extra 4-bit R2R DAC.
+
+**For much more information, [read the full documentation](docs/info.md)**
 
 # What is Tiny Tapeout?
 
@@ -21,7 +26,8 @@ To learn more and get started, visit https://tinytapeout.com.
 
 For specifications and instructions, see the [analog specs page](https://tinytapeout.com/specs/analog/).
 
-*Note*: Analog designs are currently in beta. There's a small chance that the changes will change before the deadline for Tiny Tapeout 6, or that we will have to postpone the analog design support to a future shuttle. If you have any questions, please join the [Tiny Tapeout Discord](https://tinytapeout.com/discord) and ask in the #analog channel.
+*Note*: At the time of writing (2024-05-11) analog designs are currently in beta.
+If you have any questions, please join the [Tiny Tapeout Discord](https://tinytapeout.com/discord) and ask in the `#analog` channel.
 
 # Resources
 

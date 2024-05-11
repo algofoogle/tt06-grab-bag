@@ -112,10 +112,10 @@ module tt_um_algofoogle_tt06_grab_bag(
     assign uio_oe[0] = VPWR;    // Output: vblank
     assign uio_oe[1] = VPWR;    // Output: hblank
     assign uio_oe[2] = VPWR;    // Output: Y (inverter output)
-    assign uio_oe[3] = VGND;    // (unused)
-    assign uio_oe[4] = VGND;    // (unused)
-    assign uio_oe[5] = VGND;    // (unused)
-    assign uio_oe[6] = VGND;    // (unused)
+    assign uio_oe[3] = VGND;    // Input: Extra R2R DAC bit 4
+    assign uio_oe[4] = VGND;    // Input: Extra R2R DAC bit 5
+    assign uio_oe[5] = VGND;    // Input: Extra R2R DAC bit 6
+    assign uio_oe[6] = VGND;    // Input: Extra R2R DAC bit 7
     assign uio_oe[7] = VGND;    // Input: A (inverter input)
     
     // Tie other digital outputs to VGND, so they don't float:

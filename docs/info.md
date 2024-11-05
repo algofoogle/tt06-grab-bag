@@ -28,6 +28,8 @@ The design's *main* purpose is to generate VGA test patterns that will hopefully
 
 ![Simulated VGA outputs, XOR pattern and RAMP pattern](./hhz-sim.png)
 
+The left-hand pretty pattern is "MODE_XORS" (`ui_in==8'b0011_0000`) while the right-hand gradients pattern is "MODE_RAMP" (`ui_in==8'b0001_0000`).
+
 Notice there is some horizontal smearing (more exaggerated in the right-hand image of the red/green mixes). The outputs might look better, or could look worse. There could even end up being weird banding or noise. Let's wait and see!
 
 The internal R2R DACs for each of the RGB outputs just go directly (unbuffered) to the analog output pins, where they are subject to the loading of the TT06 analog mux (estimated to be about 500&ohm; and 5pF). This combination means their slew rate is expected to be pretty bad (at least by VGA timing standards): On the order of 240&#126;360ns (or 6&#126;9 horizontal pixels) going from 0V to full 1.8V.
@@ -59,18 +61,30 @@ I took one of the 8-bit R2R DAC layouts and copied it, pulling the 4 LSB to GND,
 
 TBC!
 
+Select from a few simple test patterns in the VGA controller by having different `ui_in` values asserted while coming out of reset. the VGA controller digital block generates 8-bit digital outputs per each of red, green, and blue channels. These go into 3 basic RDACs to generate analog voltage outputs on `ua[2:0]` (`{B,G,R}`) in the range 0-1.8V (probably &#126;10k&ohm; impedance).
+
+
 ## How to test
 
 TBC!
 
-Highlights:
+1.  Supply a 25MHz clock
+2.  Set `ui_in` to `8'b0001_0000`
+3.  Assert reset -- NOTE: I didn't put a synchroniser on it, so it might (?) do a dirty reset -- if that happens, it could be worked around by slowly/manually clocking around the reset pulse, I guess.
+4.  With a scope, trigger on the `uo_out[3]` rising edge (VSYNC) and hopefully see `ua[0]` ramp from 0V to 1.8V within 10.24us
+5.  With this mode (as selected in step 2 above), `ua[1]` will also ramp, but per line (instead of per pixel), as will `ua[2]` (per frame).
+
+Other notes for testing:
 
 *   External buffering (opamps?) for analog RGB outputs, to match 0&#126;1.8V@10k&ohm; to 0&#126;0.7V@75&ohm;
 *   Digital block's mode selection is asserted via `ui_in` *during reset*
 *   For safety, initial test should be done with no analog output loading, and with all of `ui_in` pulled low (which selects pass-thru mode AND ensures all DAC *inputs* internally are low, so hopefully no current).
 *   RGB222 digital outputs compatible with the [Tiny VGA PMOD].
 
+
 ## External hardware
+
+This is if you want to see an actual analog VGA display:
 
 *   10MHz-capable (or better; preferably 25MHz) opamps on each of the R, G, B outputs, to both make them into low-impedance (matching 75&ohm; typical VGA termination), and also to level-shift from 0&#126;1.8V to 0&#126;0.7V.
 *   Optionally the [Tiny VGA PMOD] plugged into the dedicated output port (`uo_out`).

@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Anton Kicad Footprints Lib")(type "KiCad")(uri "C:/Users/Maurovics/Documents/projects/sandpit/pcb/kicad/AntonKicadLibs/Anton Kicad Footprints Lib.pretty")(options "")(descr ""))
+)

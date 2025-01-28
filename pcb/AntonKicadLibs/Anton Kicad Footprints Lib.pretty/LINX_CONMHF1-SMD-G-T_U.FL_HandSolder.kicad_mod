@@ -1,0 +1,461 @@
+(footprint "LINX_CONMHF1-SMD-G-T_U.FL_HandSolder"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(descr "U.FL SMD coaxial connector by TE Connectivity Linx")
+	(tags "U.FL smd coaxial BNC connector RF")
+	(property "Reference" "REF**"
+		(at 0.3 -4.076 0)
+		(layer "F.SilkS")
+		(uuid "5df3a5f2-a2d0-4fe7-b4b6-3535bb509619")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "LINX_CONMHF1-SMD-G-T_U.FL_HandSolder"
+		(at 0 3.683 0)
+		(layer "F.Fab")
+		(uuid "ebe5251c-83a1-4d39-bd42-a4a8dd856ea7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ab19c148-266c-4120-8358-0029b24a0dec")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=conmhf1-smd-g-t-ds&DocType=Data+Sheet&DocLang=English&DocFormat=pdf&PartCntxt=CONMHF1-SMD-G-T"
+		(at 0 6.477 0)
+		(layer "User.1")
+		(hide yes)
+		(uuid "e11a1dcb-4d4b-49fa-a6c4-2a07ff9da66d")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ce3a6cef-34c4-4947-9eb2-c1c58f21b413")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "DigikeyURL" "https://www.digikey.com.au/en/products/detail/te-connectivity-linx/CONMHF1-SMD-G-T/15293380"
+		(at 0 5.461 0)
+		(layer "User.1")
+		(hide yes)
+		(uuid "9c946269-6ae8-42ad-8b8a-0b35e47d38ba")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -1.5 -1.5)
+		(end -0.7 -1.5)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "fba7356e-6bfe-481e-b23f-926d7d31f4e0")
+	)
+	(fp_line
+		(start -1.5 -1.3)
+		(end -1.5 -1.5)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "00bb52fe-c1d3-4162-9dd6-26a88e3aa85e")
+	)
+	(fp_line
+		(start -1.5 1.5)
+		(end -1.5 1.3)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "a89bbc2c-958b-486a-9e5d-12bd9a7a6d2d")
+	)
+	(fp_line
+		(start -0.7 -1.5)
+		(end -0.7 -2)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "687a84e4-51bc-4846-839c-a3bd9c8414ef")
+	)
+	(fp_line
+		(start -0.7 1.5)
+		(end -1.5 1.5)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "f03a5906-2d7c-4840-8d9e-2bb81693bb38")
+	)
+	(fp_line
+		(start 0.7 -1.5)
+		(end 0.7 -2)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "6f859b8d-68a2-4062-bb29-b3c43319923a")
+	)
+	(fp_line
+		(start 0.7 -1.5)
+		(end 1.3 -1.5)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "e82fb520-f8ba-4bcc-b3d3-bd07e46f41d2")
+	)
+	(fp_line
+		(start 1.3 -1.5)
+		(end 1.5 -1.3)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b61308c8-ab78-4548-9286-ab84810d74a5")
+	)
+	(fp_line
+		(start 1.5 1.3)
+		(end 1.5 1.5)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "c6d824c8-dfb1-446e-8bdd-797b5b789b5b")
+	)
+	(fp_line
+		(start 1.5 1.5)
+		(end 0.7 1.5)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b4a8e283-5bb9-43ab-a74b-ead7bf51cadd")
+	)
+	(fp_circle
+		(center 0.889 -2.7)
+		(end 0.989 -2.7)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill none)
+		(layer "F.SilkS")
+		(uuid "6ddce90d-86c2-4d9f-9026-601841bb35cf")
+	)
+	(fp_line
+		(start -2.5 -2.5)
+		(end -2.5 2.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "a6f79b0d-64f5-4efb-8c0f-1dd159bdfe4f")
+	)
+	(fp_line
+		(start -2.5 2.5)
+		(end 2.5 2.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "acf7fdb7-8eef-47da-aaf3-dae34485e73f")
+	)
+	(fp_line
+		(start 2.5 -2.5)
+		(end -2.5 -2.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "a9667bde-ef43-4d98-95ea-29dc46c2f784")
+	)
+	(fp_line
+		(start 2.5 2.5)
+		(end 2.5 -2.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "b3e9d7e2-e5e7-4fb5-ab4b-c01b150ea1d7")
+	)
+	(fp_line
+		(start -1.3 -1.3)
+		(end -1.3 1.3)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "aeccfda4-62af-4d59-bcfc-02e39c5b80e2")
+	)
+	(fp_line
+		(start -1.3 1.3)
+		(end 1.3 1.3)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "9a286cb8-6f0c-4fc2-978d-9aee4e1bad1d")
+	)
+	(fp_line
+		(start 1.3 -1.3)
+		(end -1.3 -1.3)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "4ac015be-b396-44f7-a314-2d5f28c12235")
+	)
+	(fp_line
+		(start 1.3 1.3)
+		(end 1.3 -1.3)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "cdfaad52-44c2-456a-bfe5-990de25d283b")
+	)
+	(fp_circle
+		(center 0 0)
+		(end -0.9 0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill none)
+		(layer "F.Fab")
+		(uuid "97ee1a34-8435-4c80-80a0-d1f5abe9bf8d")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 0 -0.2)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill none)
+		(layer "F.Fab")
+		(uuid "c99ac07c-c9eb-45be-b7e3-05e4a70f4256")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 0 -0.125)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill none)
+		(layer "F.Fab")
+		(uuid "d5ad1c42-4568-49ec-9353-7516fdbb49fe")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 0 -0.05)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill none)
+		(layer "F.Fab")
+		(uuid "e8305d4f-fd9b-4410-a79d-9d3f01da3355")
+	)
+	(fp_circle
+		(center 0.889 -2.7)
+		(end 0.989 -2.7)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill none)
+		(layer "F.Fab")
+		(uuid "a8bd4770-425f-46e4-8976-c3387ca1b772")
+	)
+	(pad "1" smd rect
+		(at 0 -1.525)
+		(size 1 1.65)
+		(drill
+			(offset 0 -0.3)
+		)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(solder_mask_margin 0.102)
+		(uuid "f5e0141e-5c6c-460a-9e50-67583e15a4aa")
+	)
+	(pad "2" smd rect
+		(at -1.475 0)
+		(size 1.65 2.2)
+		(drill
+			(offset -0.3 0)
+		)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(solder_mask_margin 0.102)
+		(uuid "ce006bf2-27c9-47cc-a8df-d4061bfc0962")
+	)
+	(pad "2" smd rect
+		(at 0 1.525)
+		(size 1 1.65)
+		(drill
+			(offset 0 0.3)
+		)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(solder_mask_margin 0.102)
+		(uuid "b3a16e9a-288f-4c39-bc9c-48b9ecc79bf1")
+	)
+	(pad "2" smd rect
+		(at 1.475 0)
+		(size 1.65 2.2)
+		(drill
+			(offset 0.3 0)
+		)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(solder_mask_margin 0.102)
+		(uuid "9cf4a23e-d40f-4769-b53c-85d60d60eaed")
+	)
+	(zone
+		(net 0)
+		(net_name "")
+		(layer "F.Cu")
+		(uuid "52f1e0b4-38b3-4e3f-847f-c190b5349774")
+		(hatch full 0.508)
+		(connect_pads
+			(clearance 0)
+		)
+		(min_thickness 0.01)
+		(filled_areas_thickness no)
+		(keepout
+			(tracks not_allowed)
+			(vias not_allowed)
+			(pads not_allowed)
+			(copperpour not_allowed)
+			(footprints allowed)
+		)
+		(fill
+			(thermal_gap 0.508)
+			(thermal_bridge_width 0.508)
+		)
+		(polygon
+			(pts
+				(xy -0.95 -1) (xy 0.95 -1) (xy 0.95 1) (xy -0.95 1)
+			)
+		)
+	)
+	(zone
+		(net 0)
+		(net_name "")
+		(layers "*.Cu")
+		(uuid "8510849d-30b9-47bf-908a-79617148d315")
+		(hatch full 0.508)
+		(connect_pads
+			(clearance 0)
+		)
+		(min_thickness 0.01)
+		(filled_areas_thickness no)
+		(keepout
+			(tracks allowed)
+			(vias not_allowed)
+			(pads allowed)
+			(copperpour allowed)
+			(footprints allowed)
+		)
+		(fill
+			(thermal_gap 0.508)
+			(thermal_bridge_width 0.508)
+		)
+		(polygon
+			(pts
+				(xy -0.95 -1) (xy 0.95 -1) (xy 0.95 1) (xy -0.95 1)
+			)
+		)
+	)
+	(zone
+		(net 0)
+		(net_name "")
+		(layer "B.Cu")
+		(uuid "871449d2-2c9a-45a2-bce2-7ceaa99ca6c3")
+		(hatch full 0.508)
+		(connect_pads
+			(clearance 0)
+		)
+		(min_thickness 0.01)
+		(filled_areas_thickness no)
+		(keepout
+			(tracks not_allowed)
+			(vias not_allowed)
+			(pads not_allowed)
+			(copperpour not_allowed)
+			(footprints allowed)
+		)
+		(fill
+			(thermal_gap 0.508)
+			(thermal_bridge_width 0.508)
+		)
+		(polygon
+			(pts
+				(xy -0.95 -1) (xy 0.95 -1) (xy 0.95 1) (xy -0.95 1)
+			)
+		)
+	)
+	(model "${KIPRJMOD}/U.FL-connector/CONMHF1-SMD-G-T.step"
+		(offset
+			(xyz 0 0 1.25)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

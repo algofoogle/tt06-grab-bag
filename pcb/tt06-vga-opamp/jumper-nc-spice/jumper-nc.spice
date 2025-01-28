@@ -1,0 +1,3 @@
+.subckt jumper-nc 1 2
+Rjumper 1 2 0.001
+.ends

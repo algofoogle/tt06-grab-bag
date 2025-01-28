@@ -1,0 +1,159 @@
+(footprint "SMD_Passive_Perfboard_2.54mm_1206_diag"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(descr "SMD capacitor and resistor hand solderable 0603 to 1210 imperial size")
+	(tags "smd hand solder capacitor resistor inductor led")
+	(property "Reference" "REF**"
+		(at 1.701052 -0.838947 45)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "959d5f3e-5554-4c2d-ba67-163cb4b33172")
+		(effects
+			(font
+				(size 0.2 0.2)
+				(thickness 0.04)
+				(bold yes)
+			)
+		)
+	)
+	(property "Value" "SMD_Passive_Perfboard_2.54mm_1206_diag"
+		(at 0 2.31 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "b1a480df-4ab3-415b-aa28-28b3a774a5d8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 1.262929 -1.277071 45)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "fbe7fa18-a46c-401a-a428-28f213d78d2b")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 1.262929 -1.277071 45)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b0e50c14-dcaa-4a69-b20c-d127ef067927")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 1.262929 -1.277071 45)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f88b05e6-fc5e-4e5d-93dc-54819c7f9ccf")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_circle
+		(center 1.27 -1.27)
+		(end 1.305355 -1.305355)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill none)
+		(layer "F.SilkS")
+		(uuid "e877cad0-9ebb-43fb-ba7f-c176c16c289e")
+	)
+	(fp_poly
+		(pts
+			(xy -0.427057 -0.704314) (xy 1.835685 -2.967056) (xy 2.967056 -1.835685) (xy 0.704314 0.427057)
+		)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill none)
+		(layer "F.SilkS")
+		(uuid "3ecb37e6-fc83-4dd1-8750-31791300e87c")
+	)
+	(fp_poly
+		(pts
+			(xy -0.634098 -0.699223) (xy 1.840776 -3.174097) (xy 3.174097 -1.840776) (xy 0.699223 0.634098)
+		)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill none)
+		(layer "F.CrtYd")
+		(uuid "e9cc6a76-3fec-4c01-a98f-68c69e4694ef")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0.874868 -1.736973 45)
+		(layer "F.Fab")
+		(uuid "3e71eff5-f838-4445-98c4-7602d567de46")
+		(effects
+			(font
+				(size 0.2 0.2)
+				(thickness 0.04)
+				(bold yes)
+			)
+		)
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 3.81 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "67aaa5fb-8687-44a5-a6bc-8f5659895b57")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at 0 0)
+		(size 2 2)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "e7dad909-841e-4bf3-978c-fea2864c0780")
+	)
+	(pad "2" thru_hole circle
+		(at 2.54 -2.54)
+		(size 2 2)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "ba35ab76-6574-4986-8960-c87be00f0886")
+	)
+	(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

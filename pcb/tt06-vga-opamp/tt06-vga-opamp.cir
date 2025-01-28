@@ -1,0 +1,17 @@
+.title KiCad schematic
+.include "C:/Users/Maurovics/Documents/projects/sandpit/opamp/tt06-vga-opamp/opa3355-spice/OPA3355-3up.lib"
+R9 Net-_R6-Pad1_ GND 1Meg
+XU1 VCC VCC VCC VCC red_in Net-_JP2-B_ Net-_JP4-B_ Net-_R6-Pad1_ Net-_U1B--_ Net-_U1B-+_ GND Net-_U1C-+_ Net-_U1C--_ Net-_R10-Pad1_ OPA3355-3up
+R10 Net-_R10-Pad1_ GND 1Meg
+R5 VCC Net-_U1B-+_ 1Meg
+R6 Net-_R6-Pad1_ Net-_U1B--_ 1Meg
+R8 Net-_R10-Pad1_ Net-_U1C--_ 1Meg
+R7 VCC Net-_U1C-+_ 1Meg
+V1 VCC GND DC 3.3 
+R1 Net-_JP5-A_ red_out 75
+R2 GND red_out 75
+C1 Net-_JP4-B_ Net-_JP5-A_ 220u
+V2 red_in GND PULSE( 0 1.8 100n 5n 5n 100n 200n 0 ) AC 1  
+R4 Net-_JP3-B_ Net-_JP2-B_ 330
+R3 Net-_JP2-B_ Net-_JP1-B_ 470
+.end

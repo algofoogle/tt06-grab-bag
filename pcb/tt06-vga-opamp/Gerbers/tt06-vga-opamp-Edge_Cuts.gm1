@@ -1,0 +1,23 @@
+G04 #@! TF.GenerationSoftware,KiCad,Pcbnew,8.0.3*
+G04 #@! TF.CreationDate,2025-01-02T16:48:01+10:30*
+G04 #@! TF.ProjectId,tt06-vga-opamp,74743036-2d76-4676-912d-6f70616d702e,rev?*
+G04 #@! TF.SameCoordinates,Original*
+G04 #@! TF.FileFunction,Profile,NP*
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW 8.0.3) date 2025-01-02 16:48:01*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+G04 #@! TA.AperFunction,Profile*
+%ADD10C,0.500000*%
+G04 #@! TD*
+G04 APERTURE END LIST*
+D10*
+X73660000Y-52070000D02*
+X173660000Y-52070000D01*
+X173660000Y-152070000D01*
+X73660000Y-152070000D01*
+X73660000Y-52070000D01*
+M02*

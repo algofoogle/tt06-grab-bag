@@ -1,0 +1,20 @@
+* Anton's wrapper for a single OPA355 model from TI (defined in OPA3355.LIB)
+* to create a tri-opamp chip representing the real OPA3355.
+
+* Single opamp pinout is:
+* 1: OUT
+* 2: V-
+* 3: +IN
+* 4: -IN
+* 5: EN
+* 6: V+
+
+*                   1    2    3    4  5     6     7     8     9     10    11 12    13    14
+.subckt OPA3355-3up en_a en_b en_c v+ +in_a -in_a out_a out_b -in_b +in_b v- +in_c -in_c out_c
+* 1out 1in- 1in+ vcc+ 2in+ 2in- 2out 3out 3in- 3in+ vcc- 4in+ 4in- 4out
+.include OPA3355.LIB
+*    1     2  3     4     5    6
+XU1A out_a v- +in_a -in_a en_a v+ OPA3355
+XU1B out_b v- +in_b -in_b en_b v+ OPA3355
+XU1C out_c v- +in_c -in_c en_c v+ OPA3355
+.ends

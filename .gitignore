@@ -12,4 +12,7 @@ test/gate_level_netlist.v
 *~
 .*.swp
 JUNK
-
+*-cache.lib
+fp-info-cache
+~*.kicad*.lck
+*-backups

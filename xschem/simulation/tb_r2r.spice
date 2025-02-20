@@ -15,7 +15,7 @@ x4 out_parax a_int_parax GND tt06_analog_load
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
-.lib /home/anton/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.lib /home/anton/.volare/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 
 
 
@@ -25,7 +25,7 @@ x4 out_parax a_int_parax GND tt06_analog_load
 .options savecurrents
 .control
   save all
-  tran 0.1n 5.25u uic
+  tran 0.1n 15.25u uic
   write tb_r2r.raw
 .endc
 .end

@@ -2,16 +2,16 @@
 **.subckt tb_r2r
 x1 a_int d7 d6 d5 d4 d3 d2 d1 d0 GND GND r2r
 x2 out a_int GND tt06_analog_load
-V1 d0 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 20ns 40ns)
-V2 d1 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 40ns 80ns)
-V3 d2 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 80ns 160ns)
-V4 d3 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 160ns 320ns)
-V5 d4 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 320ns 640ns)
-V6 d5 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 640ns 1280ns)
-V7 d6 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 1280ns 2560ns)
-V8 d7 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 2560ns 5120ns)
+V0 d0 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 40ns 80ns)
+V1 d1 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 80ns 160ns)
+V2 d2 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 160ns 320ns)
+V3 d3 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 320ns 640ns)
+V4 d4 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 640ns 1280ns)
+V5 d5 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 1280ns 2560ns)
+V6 d6 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 2560ns 5120ns)
 x3 a_int_parax d7 d6 d5 d4 d3 d2 d1 d0 GND GND r2r_parax
 x4 out_parax a_int_parax GND tt06_analog_load
+V7 d7 GND pulse(0V 1.8V 0ns 0.5ns 0.5ns 5120ns 10240ns)
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -21,11 +21,12 @@ x4 out_parax a_int_parax GND tt06_analog_load
 
 
 
-* .options filetype=ascii
+* .options
+* + filetype=ascii
 .options savecurrents
 .control
   save all
-  tran 0.1n 15.25u uic
+  tran 0.1n 15u uic
   write tb_r2r.raw
 .endc
 .end

@@ -6,17 +6,17 @@ V {}
 S {}
 E {}
 P 4 5 220 -290 440 -290 440 -100 220 -100 220 -290 {dash=3}
-T {Model of Tiny Tapeout
-analog pin parasitics
+T {Basic Tiny Tapeout 6
+analog pin parasitics model
 (expected worst case).} 220 -360 0 0 0.3 0.3 {}
 N 180 -240 280 -240 {
 lab=a_int}
 N 260 -240 260 -200 {
 lab=a_int}
 N 260 -140 260 -120 {
-lab=VSS}
+lab=GND}
 N 360 -140 360 -120 {
-lab=VSS}
+lab=GND}
 N 340 -240 360 -240 {
 lab=a_ext}
 N 360 -240 360 -200 {

@@ -32,9 +32,11 @@ The left-hand pretty pattern is "MODE_XORS" (`ui_in==8'b0011_0000`) while the ri
 
 Notice there is some horizontal smearing (more exaggerated in the right-hand image of the red/green mixes). The outputs might look better, or could look worse. There could even end up being weird banding or noise. Let's wait and see!
 
+![Combined VGA DACs schematics](./0226-schematics.png)
+
 The internal R2R DACs for each of the RGB outputs just go directly (unbuffered) to the analog output pins, where they are subject to the loading of the TT06 analog mux (estimated to be about 500&ohm; and 5pF). This combination means their slew rate is expected to be pretty bad (at least by VGA timing standards): On the order of 240&#126;360ns (or 6&#126;9 horizontal pixels) going from 0V to full 1.8V.
 
-In a future design I plan to implement internal buffering to help mitigate some of the TT analog mux load.
+In a future design I plan to implement better internal buffering to help mitigate some of the TT analog mux load.
 
 NOTE: You will almost certainly need some sort of output buffering between this design and a VGA display, because the design outputs a high-impedance (&#126;10k&ohm; but maybe a little worse) 0&#126;1.8V range, while a VGA display expects 0&#126;0.7V at 75&ohm;. Read '**How to test**' for more info.
 
@@ -86,7 +88,7 @@ Other notes for testing:
 
 This is if you want to see an actual analog VGA display:
 
-*   10MHz-capable (or better; preferably 25MHz) opamps on each of the R, G, B outputs, to both make them into low-impedance (matching 75&ohm; typical VGA termination), and also to level-shift from 0&#126;1.8V to 0&#126;0.7V.
+*   10MHz-capable (or better; preferably 25MHz) opamps on each of the R, G, B outputs, to both make them into low-impedance (matching 75&ohm; typical VGA termination), and also to level-shift from 0&#126;1.8V to 0&#126;0.7V. See https://algo.org/pcb/tt06i for an example "interposer board" (aka "sandwich board") which uses an OPA3355 video op-amp circuit with VGA connector, and is intended to sit between the TT06 chip's breakout board (aka "carrier") and the TT06 demo board.
 *   Optionally the [Tiny VGA PMOD] plugged into the dedicated output port (`uo_out`).
 
 Come back later and I'll have a better explanation of how to hook up to a VGA display.

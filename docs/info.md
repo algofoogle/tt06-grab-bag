@@ -9,11 +9,13 @@ Ideally I would use &#x2053 ('swung dash') which is technically probably the cor
 "approximate ranges" but this doesn't work in the PDF generator.
 -->
 
-![tt06-grab-bag GDS layout showing digital block, 4 DACs, and 1 inverter](./layout.png)
+<!-- [tt06-grab-bag GDS layout showing digital block, 4 DACs, and 1 inverter](./layout.png) -->
 
 ## What is this thing?
 
-A simple analog/mixed-signal project I created when invited to participate in the first round of Matt Venn's Zero to ASIC **Analog Course** beta, and ultimately submitted to TT06. **This design has been demonstrated to work in silicon.** For comprehensive testing results, see my journal entry: https://algo.org/journal/0226
+<img src="layout-portrait.png" style="float: right;" width="40%" />
+
+A simple analog/mixed-signal project I created in the 1st round of Matt Venn's Zero to ASIC **Analog Course** beta. **This design has been demonstrated to work in silicon.** For silicon test results, see my journal entry: https://algo.org/journal/0226
 
 The design comprises the following:
 

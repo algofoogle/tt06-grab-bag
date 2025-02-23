@@ -20526,30 +20526,6 @@
 			(justify bottom)
 		)
 	)
-	(gr_text "Thicker power/ground traces?"
-		(at 131.445 77.089 0)
-		(layer "User.1")
-		(uuid "51824357-ffc6-464c-a69e-242fc668242f")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.1)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "Mousebites for VGA breakout?"
-		(at 148.5138 65.405 90)
-		(layer "User.1")
-		(uuid "ff04e861-5f9d-4c65-ba2f-436741511165")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.1)
-			)
-			(justify left bottom)
-		)
-	)
 	(segment
 		(start 78.105 87.249)
 		(end 80.01 87.249)

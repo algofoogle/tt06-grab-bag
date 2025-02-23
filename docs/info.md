@@ -13,7 +13,7 @@ Ideally I would use &#x2053 ('swung dash') which is technically probably the cor
 
 ## What is this thing?
 
-<img src="layout-portrait.png" style="float: right;" width="40%" />
+<img src="layout-portrait.png" style="float: right; margin-left: 1em;" width="40%" />
 
 A simple analog/mixed-signal project I created in the 1st round of Matt Venn's Zero to ASIC **Analog Course** beta. **This design has been demonstrated to work in silicon.** For silicon test results, see my journal entry: https://algo.org/journal/0226
 
@@ -25,7 +25,7 @@ The design comprises the following:
 *   An extra 4-bit R2R DAC.
 
 
-### VGA test pattern outputs
+## VGA test pattern outputs
 
 The design's *main* purpose is to generate VGA test patterns that were hoped to look as good as these simulations:
 
@@ -40,7 +40,7 @@ Actual results from silicon testing are pleasing:
 ![Silicon working, driving a VGA monitor](./proto-for-docs.jpg)
 
 
-### CMOS inverter
+## CMOS inverter
 
 Pretty simple:
 
@@ -53,7 +53,7 @@ The graphs below show that the simulated *analog* output is expected to be stabl
 ![Xschem simulation of my CMOS inverter](./inverter.png)
 
 
-### Extra 4-bit R2R
+## Extra 4-bit R2R
 
 I took one of the 8-bit R2R DAC layouts and copied it, pulling the 4 LSB to GND, and connecting the 4 MSB to spare bidir inputs: `uio_in[6:4]`. This DAC outputs via `ua[4]`.
 

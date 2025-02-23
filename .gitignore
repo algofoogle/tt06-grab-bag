@@ -16,3 +16,7 @@ JUNK
 fp-info-cache
 ~*.kicad*.lck
 *-backups
+sim_raw_files.tar.xz
+sim/spicewrap*
+sim/render.log
+

@@ -5,31 +5,32 @@ K {}
 V {}
 S {}
 E {}
-B 2 1130 -880 2670 -180 {flags=graph
-y1=-0.29870434
-y2=2.0946938
+B 2 900 -1100 1730 -680 {flags=graph
+y1=5.8e-11
+y2=1.8
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-1.7601843e-07
-x2=4.9826409e-06
-divx=5
-subdivx=1
+x1=1.023085e-05
+x2=1.0522439e-05
+divx=10
+subdivx=4
 xlabmag=1.0
 ylabmag=1.0
 node="out
 a_int
 a_int_parax
-out_parax"
-color="4 5 6 8"
+out_parax
+digital;\\"V(d7) 2 / V(d6) 4 / + V(d5) 8 / + V(d4) 16 / + V(d3) 32 / + V(d2) 64 / + V(d1) 128 / + V(d0) 256 / +\\""
+color="4 5 6 8 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12"
 dataset=-1
 unitx=1
 logx=0
 logy=0
 }
-B 2 1120 -1610 2660 -910 {flags=graph
+B 2 900 -1540 1730 -1120 {flags=graph
 y1=-0.00011966569
 y2=0.0001195407
 ypos1=0
@@ -37,8 +38,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-1.7601843e-07
-x2=4.9826409e-06
+x1=1.023085e-05
+x2=1.0522439e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -76,6 +77,13 @@ rainbow=1
 color="8 11"
 node="i(@b.x3.x3.brend[i])
 i(@b.x1.xr1.brend[i])"}
+T {<= NOTE each bit period is 0.5ns
+less than perfect (e.g. 39.5ns
+instead of 40ns for d0) to avoid
+spikes as bits transition.} 630 -1280 0 0 0.3 0.3 {}
+T {"r2r" is ideal R2R DAC circuit} 120 -1110 0 0 0.3 0.3 {}
+T {"r2r_parax": DAC circuit extracted
+from layout, including parasitics} 120 -890 0 0 0.3 0.3 {}
 N 400 -980 400 -960 {
 lab=GND}
 N 400 -960 400 -940 {
@@ -96,8 +104,6 @@ N 340 -1420 380 -1420 {
 lab=d5}
 N 340 -1320 380 -1320 {
 lab=d6}
-N 340 -1220 380 -1220 {
-lab=d7}
 N 400 -1120 400 -1080 {
 lab=a_int}
 N 400 -1080 420 -1080 {
@@ -112,7 +118,9 @@ N 400 -880 400 -840 {
 lab=a_int_parax}
 N 400 -840 420 -840 {
 lab=a_int_parax}
-C {devices/code.sym} 640 -1510 0 0 {name=TT_MODELS
+N 340 -1220 380 -1220 {
+lab=d7}
+C {devices/code.sym} 750 -1000 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -121,7 +129,7 @@ value="
 
 "
 spice_ignore=false}
-C {devices/launcher.sym} 850 -1500 0 0 {name=h17 
+C {devices/launcher.sym} 650 -700 0 0 {name=h17 
 descr="Load waves" 
 tclcommand="
 xschem raw_read $netlist_dir/[file tail [file rootname [xschem get current_name]]].raw tran
@@ -133,30 +141,29 @@ C {devices/gnd.sym} 400 -940 0 0 {name=l1 lab=GND}
 C {tt06_analog_load.sym} 510 -1060 0 0 {name=x2}
 C {devices/gnd.sym} 660 -1060 0 0 {name=l2 lab=GND}
 C {devices/lab_pin.sym} 700 -1080 2 0 {name=p1 sig_type=std_logic lab=out}
-C {devices/vsource.sym} 40 -1490 0 0 {name=V1 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 20ns 40ns)" savecurrent=false}
 C {devices/lab_pin.sym} 80 -1520 2 0 {name=p2 sig_type=std_logic lab=d0}
-C {devices/gnd.sym} 40 -1460 0 0 {name=l3 lab=GND}
-C {devices/vsource.sym} 40 -1390 0 0 {name=V2 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 40ns 80ns)" savecurrent=false}
+C {devices/vsource.sym} 40 -1490 0 0 {name=V0 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 39.5ns 80ns)" savecurrent=false}
 C {devices/lab_pin.sym} 80 -1420 2 0 {name=p3 sig_type=std_logic lab=d1}
-C {devices/gnd.sym} 40 -1360 0 0 {name=l4 lab=GND}
-C {devices/vsource.sym} 40 -1290 0 0 {name=V3 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 80ns 160ns)" savecurrent=false}
+C {devices/gnd.sym} 40 -1460 0 0 {name=l4 lab=GND}
+C {devices/vsource.sym} 40 -1390 0 0 {name=V1 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 79.5ns 160ns)" savecurrent=false}
 C {devices/lab_pin.sym} 80 -1320 2 0 {name=p4 sig_type=std_logic lab=d2}
-C {devices/gnd.sym} 40 -1260 0 0 {name=l5 lab=GND}
-C {devices/vsource.sym} 40 -1190 0 0 {name=V4 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 160ns 320ns)" savecurrent=false}
+C {devices/gnd.sym} 40 -1360 0 0 {name=l5 lab=GND}
+C {devices/vsource.sym} 40 -1290 0 0 {name=V2 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 159.5ns 320ns)" savecurrent=false}
 C {devices/lab_pin.sym} 80 -1220 2 0 {name=p5 sig_type=std_logic lab=d3}
-C {devices/gnd.sym} 40 -1160 0 0 {name=l6 lab=GND}
-C {devices/vsource.sym} 340 -1490 0 0 {name=V5 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 320ns 640ns)" savecurrent=false}
+C {devices/gnd.sym} 40 -1260 0 0 {name=l6 lab=GND}
+C {devices/vsource.sym} 40 -1190 0 0 {name=V3 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 319.5ns 640ns)" savecurrent=false}
 C {devices/lab_pin.sym} 380 -1520 2 0 {name=p6 sig_type=std_logic lab=d4}
-C {devices/gnd.sym} 340 -1460 0 0 {name=l7 lab=GND}
-C {devices/vsource.sym} 340 -1390 0 0 {name=V6 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 640ns 1280ns)" savecurrent=false}
+C {devices/gnd.sym} 40 -1160 0 0 {name=l7 lab=GND}
+C {devices/vsource.sym} 340 -1490 0 0 {name=V4 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 639.5ns 1280ns)" savecurrent=false}
 C {devices/lab_pin.sym} 380 -1420 2 0 {name=p7 sig_type=std_logic lab=d5}
-C {devices/gnd.sym} 340 -1360 0 0 {name=l8 lab=GND}
-C {devices/vsource.sym} 340 -1290 0 0 {name=V7 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 1280ns 2560ns)" savecurrent=false}
+C {devices/gnd.sym} 340 -1460 0 0 {name=l8 lab=GND}
+C {devices/vsource.sym} 340 -1390 0 0 {name=V5 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 1279.5ns 2560ns)" savecurrent=false}
 C {devices/lab_pin.sym} 380 -1320 2 0 {name=p8 sig_type=std_logic lab=d6}
-C {devices/gnd.sym} 340 -1260 0 0 {name=l9 lab=GND}
-C {devices/vsource.sym} 340 -1190 0 0 {name=V8 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 2560ns 5120ns)" savecurrent=false}
+C {devices/gnd.sym} 340 -1360 0 0 {name=l9 lab=GND}
+C {devices/vsource.sym} 340 -1290 0 0 {name=V6 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 2559.5ns 5120ns)" savecurrent=false}
 C {devices/lab_pin.sym} 380 -1220 2 0 {name=p9 sig_type=std_logic lab=d7}
-C {devices/gnd.sym} 340 -1160 0 0 {name=l10 lab=GND}
+C {devices/gnd.sym} 340 -1260 0 0 {name=l10 lab=GND}
+C {devices/vsource.sym} 340 -1190 0 0 {name=V7 value="pulse(0V 1.8V 0ns 0.5ns 0.5ns 5119.5ns 10240ns)" savecurrent=false}
 C {devices/lab_pin.sym} 100 -940 0 0 {name=p10 sig_type=std_logic lab=d0}
 C {devices/lab_pin.sym} 100 -960 0 0 {name=p11 sig_type=std_logic lab=d1}
 C {devices/lab_pin.sym} 100 -980 0 0 {name=p12 sig_type=std_logic lab=d2}
@@ -165,15 +172,16 @@ C {devices/lab_pin.sym} 100 -1020 0 0 {name=p14 sig_type=std_logic lab=d4}
 C {devices/lab_pin.sym} 100 -1040 0 0 {name=p15 sig_type=std_logic lab=d5}
 C {devices/lab_pin.sym} 100 -1060 0 0 {name=p16 sig_type=std_logic lab=d6}
 C {devices/lab_pin.sym} 100 -1080 0 0 {name=p17 sig_type=std_logic lab=d7}
-C {devices/simulator_commands_shown.sym} 830 -1370 0 0 {name=COMMANDS
+C {devices/simulator_commands_shown.sym} 630 -1490 0 0 {name=COMMANDS
 simulator=ngspice
 only_toplevel=false 
 value="
-* .options filetype=ascii
+* .options
+* + filetype=ascii
 .options savecurrents
 .control
   save all
-  tran 0.1n 5.25u uic
+  tran 0.1n 15u uic
   write tb_r2r.raw
 .endc
 .end
@@ -197,3 +205,4 @@ C {devices/lab_pin.sym} 100 -800 0 0 {name=p25 sig_type=std_logic lab=d5}
 C {devices/lab_pin.sym} 100 -820 0 0 {name=p26 sig_type=std_logic lab=d6}
 C {devices/lab_pin.sym} 100 -840 0 0 {name=p27 sig_type=std_logic lab=d7}
 C {devices/lab_pin.sym} 400 -880 2 0 {name=p28 sig_type=std_logic lab=a_int_parax}
+C {devices/gnd.sym} 340 -1160 0 0 {name=l3 lab=GND}
